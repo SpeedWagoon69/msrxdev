@@ -1,0 +1,400 @@
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+/>
+
+<section
+  id="tech-stack"
+  class="min-h-screen bg-[#1C1A17] flex flex-col items-center justify-center p-6 md:p-12"
+>
+  <div class="w-full max-w-5xl mx-auto">
+    <div class="overflow-hidden w-full text-left Texto">
+      <h1 class="text-2xl md:text-3xl font-mono font-bold text-white tracking-wide title-typing">
+        Stack Tecnologico
+      </h1>
+    </div>
+    <div class="stack-window">
+      <div class="window-header">
+        <!-- Controles macOS -->
+        <div #perfilWindow class="window-controls">
+          <div class="flex space-x-2">
+            <div class="circle red" (mouseenter)="closeWindow(perfilWindow)"></div>
+
+            <div class="circle yellow" (mouseenter)="minimizeWindow(perfilWindow)"></div>
+
+            <div class="circle green" (mouseenter)="maximizeWindow(perfilWindow)"></div>
+          </div>
+        </div>
+
+        <div class="window-file">
+          <span class="ml-1 text-lg text-neutral-400 font-mono">stack.json</span>
+        </div>
+
+        <div class="window-status">
+          <span class="status-dot"></span>
+
+          <span>ready</span>
+        </div>
+      </div>
+
+      <div class="editor">
+        <div class="line-numbers">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+          <span>7</span>
+          <span>8</span>
+          <span>9</span>
+          <span>10</span>
+          <span>11</span>
+          <span>12</span>
+          <span>13</span>
+          <span>14</span>
+          <span>15</span>
+          <span>16</span>
+          <span>17</span>
+          <span>18</span>
+          <span>19</span>
+          <span>20</span>
+          <span>21</span>
+          <span>22</span>
+          <span>23</span>
+          <span>24</span>
+          <span>25</span>
+          <span>26</span>
+          <span>27</span>
+          <span>28</span>
+          <span>29</span>
+          <span>30</span>
+          <span>31</span>
+          <span>32</span>
+          <span>33</span>
+          <span>34</span>
+          <span>35</span>
+        </div>
+
+        <div class="editor-content">
+          <div class="json-line">
+            <span class="json-bracket">
+              {{ '{' }}
+            </span>
+          </div>
+
+          <div class="json-section">
+            <!-- Propiedad -->
+
+            <div class="json-property">
+              <span class="json-key"> "lenguajes" </span>
+
+              <span class="json-symbol"> : </span>
+
+              <span class="json-bracket"> [ </span>
+            </div>
+
+            <!-- Grid -->
+
+            <div class="tech-grid">
+              <div class="tech-item csharp">
+                <div class="tech-logo">
+                  <i class="devicon-csharp-plain"></i>
+                </div>
+
+                <div class="tech-info">
+                  <span class="tech-name"> C# </span>
+
+                  <span class="tech-type"> language </span>
+                </div>
+
+                <span class="tech-index"> 01 </span>
+              </div>
+
+              <div class="tech-item java">
+                <div class="tech-logo">
+                  <i class="devicon-java-plain"></i>
+                </div>
+
+                <div class="tech-info">
+                  <span class="tech-name"> Java </span>
+
+                  <span class="tech-type"> language </span>
+                </div>
+
+                <span class="tech-index"> 02 </span>
+              </div>
+
+              <div class="tech-item kotlin">
+                <div class="tech-logo">
+                  <i class="devicon-kotlin-plain"></i>
+                </div>
+
+                <div class="tech-info">
+                  <span class="tech-name"> Kotlin </span>
+
+                  <span class="tech-type"> language </span>
+                </div>
+
+                <span class="tech-index"> 03 </span>
+              </div>
+
+              <div class="tech-item typescript">
+                <div class="tech-logo">
+                  <i class="devicon-typescript-plain"></i>
+                </div>
+
+                <div class="tech-info">
+                  <span class="tech-name"> TypeScript </span>
+
+                  <span class="tech-type"> language </span>
+                </div>
+
+                <span class="tech-index"> 04 </span>
+              </div>
+
+              <div class="tech-item php">
+                <div class="tech-logo">
+                  <i class="devicon-php-plain"></i>
+                </div>
+
+                <div class="tech-info">
+                  <span class="tech-name"> PHP </span>
+
+                  <span class="tech-type"> language </span>
+                </div>
+
+                <span class="tech-index"> 05 </span>
+              </div>
+
+              <div class="tech-item node">
+                <div class="tech-logo">
+                  <i class="devicon-nodejs-plain"></i>
+                </div>
+
+                <div class="tech-info">
+                  <span class="tech-name"> Node.js </span>
+
+                  <span class="tech-type"> runtime </span>
+                </div>
+
+                <span class="tech-index"> 06 </span>
+              </div>
+            </div>
+
+            <!-- Cierre -->
+
+            <div class="json-close">
+              <span class="json-bracket"> ] </span>
+
+              <span class="json-symbol"> , </span>
+            </div>
+          </div>
+
+          <div class="json-section">
+            <!-- Propiedad -->
+
+            <div class="json-property">
+              <span class="json-key"> "frameworks" </span>
+
+              <span class="json-symbol"> : </span>
+
+              <span class="json-bracket"> [ </span>
+            </div>
+
+            <!-- Grid -->
+
+            <div class="tech-grid">
+              <div class="tech-item angular">
+                <div class="tech-logo">
+                  <i class="devicon-angular-plain"></i>
+                </div>
+
+                <div class="tech-info">
+                  <span class="tech-name"> Angular </span>
+
+                  <span class="tech-type"> frontend </span>
+                </div>
+
+                <span class="tech-index"> 07 </span>
+              </div>
+
+              <div class="tech-item react">
+                <div class="tech-logo">
+                  <i class="devicon-react-original"></i>
+                </div>
+
+                <div class="tech-info">
+                  <span class="tech-name"> React </span>
+
+                  <span class="tech-type"> frontend </span>
+                </div>
+
+                <span class="tech-index"> 08 </span>
+              </div>
+
+              <div class="tech-item react-native">
+                <div class="tech-logo">
+                  <i class="devicon-react-original"></i>
+                </div>
+
+                <div class="tech-info">
+                  <span class="tech-name"> React Native </span>
+
+                  <span class="tech-type"> mobile </span>
+                </div>
+
+                <span class="tech-index"> 09 </span>
+              </div>
+
+              <div class="tech-item dotnet">
+                <div class="tech-logo">
+                  <i class="devicon-dotnetcore-plain"></i>
+                </div>
+
+                <div class="tech-info">
+                  <span class="tech-name"> .NET Core </span>
+
+                  <span class="tech-type"> backend </span>
+                </div>
+
+                <span class="tech-index"> 10 </span>
+              </div>
+
+              <div class="tech-item tailwind">
+                <div class="tech-logo">
+                  <i class="devicon-tailwindcss-original"></i>
+                </div>
+
+                <div class="tech-info">
+                  <span class="tech-name"> Tailwind CSS </span>
+
+                  <span class="tech-type"> frontend </span>
+                </div>
+
+                <span class="tech-index"> 11 </span>
+              </div>
+
+              <div class="tech-item supabase">
+                <div class="tech-logo">
+                  <i class="devicon-supabase-plain"></i>
+                </div>
+
+                <div class="tech-info">
+                  <span class="tech-name"> Supabase </span>
+
+                  <span class="tech-type"> backend </span>
+                </div>
+
+                <span class="tech-index"> 12 </span>
+              </div>
+            </div>
+
+            <!-- Cierre -->
+
+            <div class="json-close">
+              <span class="json-bracket"> ] </span>
+
+              <span class="json-symbol"> , </span>
+            </div>
+          </div>
+
+          <div class="json-section">
+            <!-- Propiedad -->
+
+            <div class="json-property">
+              <span class="json-key"> "bases_de_datos" </span>
+
+              <span class="json-symbol"> : </span>
+
+              <span class="json-bracket"> [ </span>
+            </div>
+
+            <div class="tech-grid">
+              <div class="tech-item sqlserver">
+                <div class="tech-logo">
+                  <i class="devicon-microsoftsqlserver-plain"></i>
+                </div>
+
+                <div class="tech-info">
+                  <span class="tech-name"> SQL Server </span>
+
+                  <span class="tech-type"> database </span>
+                </div>
+
+                <span class="tech-index"> 13 </span>
+              </div>
+
+              <div class="tech-item postgresql">
+                <div class="tech-logo">
+                  <i class="devicon-postgresql-plain"></i>
+                </div>
+
+                <div class="tech-info">
+                  <span class="tech-name"> PostgreSQL </span>
+
+                  <span class="tech-type"> database </span>
+                </div>
+
+                <span class="tech-index"> 14 </span>
+              </div>
+
+              <div class="tech-item mysql">
+                <div class="tech-logo">
+                  <i class="devicon-mysql-plain"></i>
+                </div>
+
+                <div class="tech-info">
+                  <span class="tech-name"> MySQL </span>
+
+                  <span class="tech-type"> database </span>
+                </div>
+
+                <span class="tech-index"> 15 </span>
+              </div>
+
+              <div class="tech-item sqlite">
+                <div class="tech-logo">
+                  <i class="devicon-sqlite-plain"></i>
+                </div>
+
+                <div class="tech-info">
+                  <span class="tech-name"> SQLite </span>
+
+                  <span class="tech-type"> database </span>
+                </div>
+
+                <span class="tech-index"> 16 </span>
+              </div>
+            </div>
+
+            <!-- Cierre -->
+
+            <div class="json-close">
+              <span class="json-bracket"> ] </span>
+            </div>
+          </div>
+
+          <div class="json-line">
+            <span class="json-bracket">
+              {{ '}' }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="window-footer">
+        <span>
+          <span class="text-green-400"> ● </span>
+
+          16 technologies
+        </span>
+
+        <span> stack.json </span>
+
+        <span> UTF-8 </span>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,77 @@
+/* about.component.css */
+
+/* --- Estilos base para las tipografías --- */
+.font-mono {
+  font-family: 'JetBrains Mono', monospace; /* Asegurando la fuente */
+}
+
+.circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.circle:hover {
+  transform: scale(1.2);
+}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+.window-status {
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  font-family: monospace;
+  font-size: 12px;
+  color: #737373;
+}
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.7);
+
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+.window-footer {
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 0 14px;
+
+  background: #252525;
+
+  border-top: 1px solid #333;
+
+  color: #525252;
+
+  font-family: monospace;
+  font-size: 10px;
+}
+.window-footer span:nth-child(2) {
+  margin-left: auto;
+}

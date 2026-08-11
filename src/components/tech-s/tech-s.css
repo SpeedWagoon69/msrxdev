@@ -1,0 +1,1346 @@
+/* =========================================
+   VENTANA PRINCIPAL
+========================================= */
+
+.stack-window {
+  width: 100%;
+  background: #1e1e1e;
+  border: 1px solid #404040;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.window-header {
+  height: 46px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  background: #292929;
+  border-bottom: 1px solid #3d3d3d;
+}
+
+.window-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.window-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+}
+
+.window-dot.red {
+  background: #ff5f56;
+}
+
+.window-dot.yellow {
+  background: #ffbd2e;
+}
+
+.window-dot.green {
+  background: #27c93f;
+}
+
+.window-file {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 18px;
+
+  font-family: monospace;
+  font-size: 14px;
+  color: #a3a3a3;
+}
+
+.file-icon {
+  color: #facc15;
+  font-size: 13px;
+}
+
+.window-status {
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  font-family: monospace;
+  font-size: 12px;
+  color: #737373;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.7);
+
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+/* =========================================
+   EDITOR
+========================================= */
+
+.editor {
+  display: flex;
+  min-height: 500px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+.line-numbers {
+  width: 55px;
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 24px;
+
+  text-align: right;
+  padding-right: 18px;
+
+  color: #525252;
+  font-size: 13px;
+
+  border-right: 1px solid #292929;
+
+  user-select: none;
+}
+
+.line-numbers span {
+  height: 27px;
+  line-height: 27px;
+}
+
+
+/* =========================================
+   CONTENIDO
+========================================= */
+
+.editor-content {
+  flex: 1;
+  padding: 24px 28px;
+  overflow: hidden;
+}
+
+.json-line {
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.json-section {
+  margin-top: 8px;
+  margin-bottom: 18px;
+}
+
+.json-property {
+  display: flex;
+  gap: 7px;
+
+  font-size: 16px;
+  line-height: 27px;
+}
+
+.json-key {
+  color: #f472b6;
+}
+
+.json-symbol {
+  color: #d4d4d4;
+}
+
+.json-bracket {
+  color: #4ade80;
+}
+
+.json-close {
+  margin-left: 12px;
+
+  font-size: 16px;
+  line-height: 27px;
+}
+
+
+/* =========================================
+   GRID
+========================================= */
+
+.tech-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 12px;
+
+  margin: 12px 0 8px 22px;
+}
+
+
+/* =========================================
+   TECH ITEM
+========================================= */
+
+.tech-item {
+  position: relative;
+
+  min-height: 100px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 14px 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.008)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* Línea de luz */
+
+.tech-item::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 100%;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.7),
+    transparent
+  );
+
+  transition: left 0.5s ease;
+}
+
+.tech-item:hover::before {
+  left: 100%;
+}
+
+
+/* Hover tarjeta */
+
+.tech-item:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(255, 255, 255, 0.18);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.07),
+      rgba(255, 255, 255, 0.015)
+    );
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.tech-logo {
+  width: 55px;
+  height: 55px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: rgba(0, 0, 0, 0.35);
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.tech-logo i {
+  font-size: 2.5rem;
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.35s ease;
+}
+
+
+/* Hover logo */
+
+.tech-item:hover .tech-logo {
+  transform: scale(1.08);
+
+  border-color: rgba(255, 255, 255, 0.15);
+
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 0.06);
+}
+
+.tech-item:hover .tech-logo i {
+  filter:
+    drop-shadow(0 0 8px rgba(255, 255, 255, 0.25));
+}
+
+
+/* =========================================
+   INFORMACIÓN
+========================================= */
+
+.tech-info {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+.tech-name {
+  color: #e5e5e5;
+
+  font-family: monospace;
+  font-size: 18px;
+  font-weight: 600;
+
+  transition: color 0.3s ease;
+}
+
+.tech-type {
+  margin-top: 3px;
+
+  color: #b0acac;
+
+  font-family: monospace;
+  font-size: 13px;
+
+  transition: color 0.3s ease;
+}
+
+.tech-item:hover .tech-name {
+  color: white;
+}
+
+.tech-item:hover .tech-type {
+  color: #fef6f6;
+}
+
+
+/* =========================================
+   ÍNDICE
+========================================= */
+
+.tech-index {
+  position: absolute;
+
+  top: 8px;
+  right: 10px;
+
+  color: #404040;
+
+  font-family: monospace;
+  font-size: 10px;
+}
+
+
+/* =========================================
+   ANIMACIONES INDIVIDUALES
+========================================= */
+
+
+/* C# */
+
+.csharp:hover .tech-logo i {
+  animation: logoFloat 0.8s ease;
+}
+
+
+/* Java */
+
+.java:hover .tech-logo i {
+  animation: logoRotate 0.7s ease;
+}
+
+
+/* Python */
+
+.python:hover .tech-logo i {
+  animation: logoBounce 0.7s ease;
+}
+
+
+/* TypeScript */
+
+.typescript:hover .tech-logo i {
+  animation: logoTilt 0.7s ease;
+}
+
+
+/* SQL */
+
+.sql:hover .tech-logo i {
+  animation: logoPulse 0.7s ease;
+}
+
+
+/* Node */
+
+.node:hover .tech-logo i {
+  animation: logoSpin 0.8s ease;
+}
+
+
+/* React */
+
+.react:hover .tech-logo i {
+  animation: reactSpin 1s linear;
+}
+
+
+/* Android */
+
+.android:hover .tech-logo i {
+  animation: androidJump 0.7s ease;
+}
+
+
+/* SQLite */
+
+.sqlite:hover .tech-logo i {
+  animation: logoFloat 0.8s ease;
+}
+
+
+/* Supabase */
+
+.supabase:hover .tech-logo i {
+  animation: logoBounce 0.7s ease;
+}
+
+
+/* Vercel */
+
+.vercel:hover .tech-logo i {
+  animation: logoTilt 0.7s ease;
+}
+
+
+/* =========================================
+   KEYFRAMES
+========================================= */
+
+@keyframes logoFloat {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-7px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes logoRotate {
+
+  0% {
+    transform: rotate(0);
+  }
+
+  40% {
+    transform: rotate(-12deg);
+  }
+
+  70% {
+    transform: rotate(8deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+
+
+@keyframes logoBounce {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-9px);
+  }
+
+  70% {
+    transform: translateY(3px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes logoTilt {
+
+  0% {
+    transform: rotate(0);
+  }
+
+  35% {
+    transform: rotate(-8deg) scale(1.08);
+  }
+
+  65% {
+    transform: rotate(6deg) scale(1.08);
+  }
+
+  100% {
+    transform: rotate(0) scale(1);
+  }
+}
+
+
+@keyframes logoPulse {
+
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.18);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+@keyframes logoSpin {
+
+  0% {
+    transform: rotate(0);
+  }
+
+  60% {
+    transform: rotate(12deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+
+
+@keyframes reactSpin {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes androidJump {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  30% {
+    transform: translateY(-8px);
+  }
+
+  55% {
+    transform: translateY(0);
+  }
+
+  75% {
+    transform: translateY(-3px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+
+
+.window-footer {
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 0 14px;
+
+  background: #252525;
+
+  border-top: 1px solid #333;
+
+  color: #525252;
+
+  font-family: monospace;
+  font-size: 10px;
+}
+
+.window-footer span:nth-child(2) {
+  margin-left: auto;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 640px) {
+
+  .editor {
+    min-height: auto;
+  }
+
+  .line-numbers {
+    display: none;
+  }
+
+  .editor-content {
+    padding: 20px 14px;
+  }
+
+  .tech-grid {
+    grid-template-columns: 1fr;
+    margin-left: 8px;
+  }
+
+  .window-status {
+    display: none;
+  }
+
+  .tech-item {
+    min-height: 85px;
+  }
+
+}
+/* =========================================
+   ANIMACIONES INDIVIDUALES
+========================================= */
+
+/* C# — pequeño salto */
+.csharp:hover .tech-logo i {
+  animation: logoFloat 0.8s ease;
+}
+
+/* Java — giro corto */
+.java:hover .tech-logo i {
+  animation: logoRotate 0.7s ease;
+}
+
+/* Kotlin — rebote */
+.kotlin:hover .tech-logo i {
+  animation: logoBounce 0.7s ease;
+}
+
+/* TypeScript — inclinación */
+.typescript:hover .tech-logo i {
+  animation: logoTilt 0.7s ease;
+}
+
+/* PHP — pulso */
+.php:hover .tech-logo i {
+  animation: logoPulse 0.7s ease;
+}
+
+/* Node.js — giro */
+.node:hover .tech-logo i {
+  animation: nodeSpin 0.8s ease;
+}
+
+
+/* Angular — giro */
+.angular:hover .tech-logo i {
+  animation: angularSpin 0.8s ease;
+}
+
+/* React — giro completo */
+.react:hover .tech-logo i {
+  animation: reactSpin 1s linear;
+}
+
+/* React Native — flotación */
+.react-native:hover .tech-logo i {
+  animation: reactNativeFloat 0.8s ease;
+}
+
+/* Xamarin — inclinación */
+.xamarin:hover .tech-logo i {
+  animation: xamarinTilt 0.7s ease;
+}
+
+/* Android — salto */
+.android:hover .tech-logo i {
+  animation: androidJump 0.7s ease;
+}
+
+/* Supabase — rebote */
+.supabase:hover .tech-logo i {
+  animation: supabaseBounce 0.7s ease;
+}
+
+
+/* =========================================
+   BASES DE DATOS
+========================================= */
+
+/* SQL Server — pulso */
+.sqlserver:hover .tech-logo i {
+  animation: databasePulse 0.8s ease;
+}
+
+/* PostgreSQL — pequeño giro */
+.postgresql:hover .tech-logo i {
+  animation: postgresRotate 0.8s ease;
+}
+
+/* MySQL — flotación */
+.mysql:hover .tech-logo i {
+  animation: mysqlFloat 0.8s ease;
+}
+
+/* SQLite — rebote */
+.sqlite:hover .tech-logo i {
+  animation: sqliteBounce 0.7s ease;
+}
+
+
+/* =========================================
+   KEYFRAMES
+========================================= */
+
+@keyframes logoFloat {
+  0% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-7px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes logoRotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  40% {
+    transform: rotate(-12deg);
+  }
+
+  70% {
+    transform: rotate(8deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+
+
+@keyframes logoBounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-9px);
+  }
+
+  70% {
+    transform: translateY(3px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes logoTilt {
+  0% {
+    transform: rotate(0);
+  }
+
+  35% {
+    transform: rotate(-8deg) scale(1.08);
+  }
+
+  65% {
+    transform: rotate(6deg) scale(1.08);
+  }
+
+  100% {
+    transform: rotate(0) scale(1);
+  }
+}
+
+
+@keyframes logoPulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+@keyframes nodeSpin {
+  0% {
+    transform: rotate(0);
+  }
+
+  35% {
+    transform: rotate(12deg);
+  }
+
+  70% {
+    transform: rotate(-12deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+
+
+@keyframes angularSpin {
+  0% {
+    transform: rotate(0) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.12);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+
+@keyframes reactSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes reactNativeFloat {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+
+  35% {
+    transform: translateY(-7px) rotate(-5deg);
+  }
+
+  70% {
+    transform: translateY(3px) rotate(5deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+
+@keyframes xamarinTilt {
+  0% {
+    transform: rotate(0);
+  }
+
+  30% {
+    transform: rotate(-12deg) scale(1.08);
+  }
+
+  65% {
+    transform: rotate(10deg) scale(1.08);
+  }
+
+  100% {
+    transform: rotate(0) scale(1);
+  }
+}
+
+
+@keyframes androidJump {
+  0% {
+    transform: translateY(0);
+  }
+
+  30% {
+    transform: translateY(-8px);
+  }
+
+  55% {
+    transform: translateY(0);
+  }
+
+  75% {
+    transform: translateY(-3px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes supabaseBounce {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+
+  35% {
+    transform: translateY(-8px) scale(1.08);
+  }
+
+  65% {
+    transform: translateY(2px) scale(0.98);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* =========================================
+   DATABASE ANIMATIONS
+========================================= */
+
+@keyframes databasePulse {
+  0% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1.15);
+  }
+
+  70% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+@keyframes postgresRotate {
+  0% {
+    transform: rotate(0) translateY(0);
+  }
+
+  40% {
+    transform: rotate(-8deg) translateY(-5px);
+  }
+
+  70% {
+    transform: rotate(8deg) translateY(2px);
+  }
+
+  100% {
+    transform: rotate(0) translateY(0);
+  }
+}
+
+
+@keyframes mysqlFloat {
+  0% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-6px) scale(1.05);
+  }
+
+  70% {
+    transform: translateY(2px) scale(0.98);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+@keyframes sqliteBounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  30% {
+    transform: translateY(-8px);
+  }
+
+  55% {
+    transform: translateY(2px);
+  }
+
+  75% {
+    transform: translateY(-3px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.circle:hover {
+  transform: scale(1.2);
+}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+/* .NET — efecto rebote elegante */
+.dotnet:hover .tech-logo i {
+  animation: dotnetBounce 0.7s ease;
+}
+
+/* Tailwind — efecto viento / wave */
+.tailwind:hover .tech-logo i {
+  animation: tailwindWave 0.9s ease;
+}
+@keyframes dotnetBounce {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  40% {
+    transform: scale(1.15) translateY(-6px);
+  }
+  70% {
+    transform: scale(0.95) translateY(2px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes tailwindWave {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg) scale(1.05);
+  }
+  50% {
+    transform: rotate(10deg) scale(1.08);
+  }
+  75% {
+    transform: rotate(-6deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes angularSpin {
+  0% { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
+}
+.tech-item {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.tech-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  filter: blur(12px);
+  z-index: 0;
+}
+
+.tech-item:hover::after {
+  opacity: 1;
+    animation: glowPulse 1.5s ease-in-out infinite;
+
+}
+
+.tech-item:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+.angular::after {
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.6), transparent 70%);
+}
+
+.angular:hover {
+  box-shadow:
+    0 0 12px rgba(220, 38, 38, 0.6),
+    0 0 24px rgba(220, 38, 38, 0.4);
+}
+.dotnet::after {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.6), transparent 70%);
+}
+
+.dotnet:hover {
+  box-shadow:
+    0 0 12px rgba(139, 92, 246, 0.6),
+    0 0 24px rgba(139, 92, 246, 0.4);
+}
+.tailwind::after {
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.6), transparent 70%);
+}
+
+.tailwind:hover {
+  box-shadow:
+    0 0 12px rgba(6, 182, 212, 0.6),
+    0 0 24px rgba(6, 182, 212, 0.4);
+}
+@keyframes glowPulse {
+  0% {
+    filter: blur(10px);
+    opacity: 0.6;
+  }
+  50% {
+    filter: blur(18px);
+    opacity: 1;
+  }
+  100% {
+    filter: blur(10px);
+    opacity: 0.6;
+  }
+}
+
+.tech-item:hover::after {
+  animation: glowPulse 1.5s infinite ease-in-out;
+}
+/* C# */
+.csharp::after {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.6), transparent 70%);
+}
+.csharp:hover {
+  box-shadow:
+    0 0 12px rgba(168, 85, 247, 0.6),
+    0 0 24px rgba(168, 85, 247, 0.4);
+}
+
+/* Java */
+.java::after {
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.6), transparent 70%);
+}
+.java:hover {
+  box-shadow:
+    0 0 12px rgba(249, 115, 22, 0.6),
+    0 0 24px rgba(249, 115, 22, 0.4);
+}
+
+/* Kotlin */
+.kotlin::after {
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.6), transparent 70%);
+}
+.kotlin:hover {
+  box-shadow:
+    0 0 12px rgba(124, 58, 237, 0.6),
+    0 0 24px rgba(124, 58, 237, 0.4);
+}
+
+/* TypeScript */
+.typescript::after {
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.6), transparent 70%);
+}
+.typescript:hover {
+  box-shadow:
+    0 0 12px rgba(37, 99, 235, 0.6),
+    0 0 24px rgba(37, 99, 235, 0.4);
+}
+
+/* PHP */
+.php::after {
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.6), transparent 70%);
+}
+.php:hover {
+  box-shadow:
+    0 0 12px rgba(99, 102, 241, 0.6),
+    0 0 24px rgba(99, 102, 241, 0.4);
+}
+/* React */
+.react::after {
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.6), transparent 70%);
+}
+.react:hover {
+  box-shadow:
+    0 0 12px rgba(56, 189, 248, 0.6),
+    0 0 24px rgba(56, 189, 248, 0.4);
+}
+
+/* React Native */
+.react-native::after {
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.6), transparent 70%);
+}
+.react-native:hover {
+  box-shadow:
+    0 0 12px rgba(20, 184, 166, 0.6),
+    0 0 24px rgba(20, 184, 166, 0.4);
+}
+/* SQL Server */
+.sqlserver::after {
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.6), transparent 70%);
+}
+.sqlserver:hover {
+  box-shadow:
+    0 0 12px rgba(239, 68, 68, 0.6),
+    0 0 24px rgba(239, 68, 68, 0.4);
+}
+
+/* PostgreSQL */
+.postgresql::after {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.6), transparent 70%);
+}
+.postgresql:hover {
+  box-shadow:
+    0 0 12px rgba(59, 130, 246, 0.6),
+    0 0 24px rgba(59, 130, 246, 0.4);
+}
+
+/* MySQL */
+.mysql::after {
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.6), transparent 70%);
+}
+.mysql:hover {
+  box-shadow:
+    0 0 12px rgba(245, 158, 11, 0.6),
+    0 0 24px rgba(245, 158, 11, 0.4);
+}
+.node::after {
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.6), transparent 70%);
+}
+
+.node:hover {
+  box-shadow:
+    0 0 12px rgba(34, 197, 94, 0.6),
+    0 0 24px rgba(34, 197, 94, 0.4);
+}
+.supabase::after {
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.6), transparent 70%);
+}
+
+.supabase:hover {
+  box-shadow:
+    0 0 12px rgba(16, 185, 129, 0.6),
+    0 0 24px rgba(16, 185, 129, 0.4);
+}
+.sqlite::after {
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.6), transparent 70%);
+}
+
+.sqlite:hover {
+  box-shadow:
+    0 0 12px rgba(96, 165, 250, 0.6),
+    0 0 24px rgba(96, 165, 250, 0.4);
+}
+.tech-item > * {
+  position: relative;
+  z-index: 1;
+}

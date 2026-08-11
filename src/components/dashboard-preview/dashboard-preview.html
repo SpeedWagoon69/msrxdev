@@ -1,0 +1,322 @@
+<div class="dhb-ln">
+  <nav class="navbar">
+    <div class="ln-nav-container">
+      <!-- Hamburguesa -->
+      <button
+        id="btnMenuClientes"
+        type="button"
+        class="menu-toggle"
+        [class.open-btn]="isSidebarOpen"
+        (click)="toggleMenuClientes()"
+        aria-label="Abrir menú"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Título -->
+      <span class="navbar-brand"> Monitor La Nacional - DASHBOARD </span>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="ln-nav-subtitle">
+      <i class="fas fa-layer-group"></i>
+      Dashboard
+    </div>
+  </nav>
+
+  <div class="layout">
+    <aside
+      id="sidebarClientes"
+      class="sidebar"
+      [class.open]="isSidebarOpen"
+      [class.collapsed]="isCollapsed"
+    >
+      <!-- Dashboard -->
+      <div id="lnkInicio" runat="server">
+        <i class="fas fa-home"></i>
+        <span>DashBoard</span>
+      </div>
+
+      <!-- Clientes -->
+      <div id="lnkClientes" runat="server" NavigateUrl="ClientesRuta.aspx">
+        <i class="fas fa-id-card"></i>
+        <span>Clientes</span>
+      </div>
+
+      <!-- Geolocalización -->
+      <div id="lnkGeolocalizacion" runat="server" NavigateUrl="Geolocalizacion.aspx">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Geolocalizacion</span>
+      </div>
+
+      <!-- Usuarios -->
+      <div id="HyperLink1" runat="server" NavigateUrl="Usuarios.aspx">
+        <i class="fas fa-user-shield"></i>
+        <span>Usuarios</span>
+      </div>
+
+      <div class="sidebar-group">
+        <a href="javascript:void(0);" (click)="toggleReportes()" class="report-toggle">
+          <i class="fas fa-file-invoice"></i>
+
+          <span>Reportes</span>
+
+          <i class="fas fa-chevron-down ln-chevron" [class.rotate]="isReportesOpen"></i>
+        </a>
+
+        <!-- Submenú -->
+        <div id="submenuReportes" [class.open]="isReportesOpen">
+          <!-- Análisis y ventas -->
+          <div class="ln-submenu-title">Análisis y Ventas</div>
+
+          <div runat="server" NavigateUrl="Rep_Analisis8020.aspx">
+            <i class="fas fa-chart-pie"></i>
+            <span>Análisis 80/20</span>
+          </div>
+
+          <div runat="server" NavigateUrl="ReporteCoberturaRuta.aspx">
+            <i class="fas fa-route"></i>
+            <span>Por Ruta</span>
+          </div>
+
+          <div runat="server" NavigateUrl="ReporteCoberturaCEDI.aspx">
+            <i class="fas fa-warehouse"></i>
+            <span>Por CEDI</span>
+          </div>
+
+          <div runat="server" NavigateUrl="ReporteTopClientes.aspx">
+            <i class="fas fa-trophy"></i>
+            <span>Top 100</span>
+          </div>
+
+          <div runat="server" NavigateUrl="ReporteClientesSinVenta.aspx">
+            <i class="fas fa-user-times"></i>
+            <span>Clientes sin venta</span>
+          </div>
+
+          <!-- Operación y tiempos -->
+          <div class="ln-submenu-title">Operación y Tiempos</div>
+
+          <div runat="server" NavigateUrl="Rep_Tiempos.aspx">
+            <i class="fas fa-clock"></i>
+            <span>Tiempos de Operación</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prospectos -->
+      <div id="HyperLink2" runat="server" NavigateUrl="Prospectos.aspx">
+        <i class="fas fa-binoculars"></i>
+        <span>Prospectos</span>
+      </div>
+
+      <!-- Paradas no autorizadas -->
+      <div id="HyperLink3" runat="server" NavigateUrl="ParadasNoAutorizadas.aspx">
+        <i class="fas fa-hand-paper"></i>
+        <span>Paradas No Autorizadas</span>
+      </div>
+
+      <!-- Notas de versión -->
+      <div id="HyperLink4" runat="server" NavigateUrl="NotasDeVersion.aspx">
+        <i class="fas fa-history"></i>
+        <span>Notas de Version</span>
+      </div>
+
+      <!-- Separador -->
+      <hr class="ln-divider" />
+
+      <!-- Cerrar sesión -->
+      <button
+        id="btnCerrarSesion"
+        runat="server"
+        OnClick="btnCerrarSesion_Click"
+        class="ln-btn-logout"
+      >
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Cerrar Sesión</span>
+      </button>
+    </aside>
+    <main>
+      <div class="card card-no-padding">
+        <div class="flex-stretch">
+          <!-- Rutas -->
+          <div class="stat-box">
+            <div class="icon-box-primary">
+              <i class="fas fa-route"></i>
+            </div>
+
+            <div>
+              <span class="stat-value stat-value-dark">
+                <span id="litRutasActivas" runat="server"> 6 </span>
+              </span>
+
+              <span class="stat-label"> Rutas </span>
+            </div>
+          </div>
+
+          <div class="vertical-divider"></div>
+
+          <!-- Ventas -->
+          <div class="stat-box">
+            <div class="icon-box-secondary">
+              <i class="fas fa-shopping-basket"></i>
+            </div>
+
+            <div>
+              <span class="stat-value stat-value-accent">
+                <span id="litPorcentajeGeneral" runat="server"> 47.37% </span>
+              </span>
+
+              <span class="stat-label"> % Venta </span>
+            </div>
+          </div>
+
+          <div class="vertical-divider"></div>
+
+          <!-- Visitas -->
+          <div class="stat-box">
+            <div class="icon-box-secondary">
+              <i class="fas fa-check-double"></i>
+            </div>
+
+            <div>
+              <span class="stat-value stat-value-accent">
+                <span id="litPorcentajeVisita" runat="server"> 56.84% </span>
+              </span>
+
+              <span class="stat-label"> % Visita </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls-row">
+        <!-- Fecha -->
+        <div class="control-date-group">
+          <i class="fas fa-calendar-alt"></i>
+
+          <input type="date" id="txtFecha" class="ddl-style input-form-styled" />
+        </div>
+
+        <!-- CEDI -->
+        <div class="control-select-group">
+          <i class="fas fa-warehouse"></i>
+
+          <select
+            [formControl]="ddlCedi"
+            class="ddl-style select-flex-styled"
+            (change)="onCediChange()"
+          >
+            <option value="0">Todos los CEDIS</option>
+
+            @for (cedi of listaCedis; track cedi.id) {
+              <option [value]="cedi.id">
+                {{ cedi.nombre }}
+              </option>
+            }
+          </select>
+        </div>
+
+        <!-- Botones -->
+        <div class="button-flex-group">
+          <!-- Consultar -->
+          <button type="button" class="btn-consultar">
+            <i class="fas fa-search"></i>
+            <span>Consultar</span>
+          </button>
+
+          <!-- Restablecer -->
+          <button
+            type="button"
+            class="btn-consultar btn-reset-styled"
+            onclick="window.location.reload()"
+          >
+            <i class="fas fa-sync-alt"></i>
+            <span>Restablecer</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3 class="panel-title-colored">
+          <i class="fas fa-table"></i>
+          Jornadas Activas
+        </h3>
+
+        <table class="grid-view table-collapse">
+          <thead>
+            <tr>
+              <th>Ruta</th>
+
+              <th>Empleado</th>
+
+              <th class="text-center">Clientes</th>
+
+              <th class="text-center">Ventas</th>
+
+              <th class="text-center">Visitas</th>
+
+              <th class="text-center">Prosp.</th>
+
+              <th class="text-center">KL Detalle</th>
+
+              <th class="text-center">Ticket Prom.</th>
+
+              <th class="text-center">%Venta.</th>
+
+              <th class="text-center">%Visita</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            @for (ruta of listaRutasActivas; track ruta.idRuta) {
+              <tr>
+                <td>
+                  {{ ruta.idRuta }}
+                </td>
+
+                <td>
+                  {{ ruta.Empleado }}
+                </td>
+
+                <td class="text-center">
+                  {{ ruta.TotalClientes }}
+                </td>
+
+                <td class="text-center">
+                  {{ ruta.VentasHoy }}
+                </td>
+
+                <td class="text-center text-bold">
+                  {{ ruta.VisitasTotales }}
+                </td>
+
+                <td class="text-center text-bold">
+                  {{ ruta.ProspectosHoy }}
+                </td>
+
+                <td class="text-center">
+                  {{ ruta.KLDetalle | number: '1.2-2' }}
+                </td>
+
+                <td class="text-center">
+                  {{ ruta.TicketPromedio }}
+                </td>
+
+                <td class="text-center text-bold">
+                  {{ ruta.PorcentajeVentas }}
+                </td>
+
+                <td class="text-center text-bold">
+                  {{ ruta.PorcentajeVisita }}
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,705 @@
+<nav class="navbar">
+              <div style="display: flex; align-items: center">
+                <button
+                  id="btnMenuClientes"
+                  type="button"
+                  class="menu-toggle"
+                  onclick="toggleMenuClientes()"
+                >
+                  <span></span><span></span><span></span>
+                </button>
+                <span class="navbar-brand">Monitor La Nacional - DASHBOARD</span>
+              </div>
+              <div style="color: var(--muted); font-weight: 600; font-size: 0.9rem">
+                <i class="fas fa-layer-group"></i>Dashboard
+              </div>
+            </nav>
+
+            <div class="layout">
+              <aside id="sidebarClientes" class="sidebar">
+                <div
+                  ID="lnkInicio"
+                  runat="server"
+                  NavigateUrl="DashBoard.aspx"
+                  Style="background: #f0f5f2; color: var(--green-base); border-left: 4px solid var(--green-base);"
+                >
+                  <i class="fas fa-home"></i> DashBoard
+                </div>
+
+                <div ID="lnkClientes" runat="server" NavigateUrl="ClientesRuta.aspx">
+                  <i class="fas fa-id-card"></i> Clientes
+                </div>
+
+                <div ID="lnkGeolocalizacion" runat="server" NavigateUrl="Geolocalizacion.aspx">
+                  <i class="fas fa-map-marker-alt"></i> Geolocalizacion
+                </div>
+                <div ID="HyperLink1" runat="server" NavigateUrl="Usuarios.aspx">
+                  <i class="fas fa-user-shield"></i> Usuarios
+                </div>
+                <div class="sidebar-group">
+                  <a
+                    href="javascript:void(0);"
+                    onclick="toggleReportes()"
+                    class="report-toggle"
+                    id="btnReportes"
+                  >
+                    <i class="fas fa-file-invoice"></i>
+                    <span>Reportes</span>
+                    <i
+                      class="fas fa-chevron-down"
+                      style="margin-left: auto; font-size: 0.8rem; transition: 0.3s"
+                      id="chevron-reportes"
+                    ></i>
+                  </a>
+
+                  <div
+                    id="submenuReportes"
+                    style="
+                      display: none;
+                      padding-left: 10px;
+                      background: #fafcfb;
+                      border-radius: 0 0 10px 10px;
+                    "
+                  >
+                    <div
+                      style="
+                        padding: 10px 15px;
+                        font-size: 0.7rem;
+                        color: var(--muted);
+                        font-weight: 800;
+                        text-transform: uppercase;
+                      "
+                    >
+                      Análisis y Ventas
+                    </div>
+                    <div runat="server" NavigateUrl="Rep_Analisis8020.aspx">Análisis 80/20</div>
+                    <div runat="server" NavigateUrl="ReporteCoberturaRuta.aspx">Por Ruta</div>
+                    <div runat="server" NavigateUrl="ReporteCoberturaCEDI.aspx">Por CEDI</div>
+                    <div runat="server" NavigateUrl="ReporteTopClientes.aspx">Top 100</div>
+                    <div runat="server" NavigateUrl="ReporteClientesSinVenta.aspx">
+                      Clientes sin venta
+                    </div>
+
+                    <div
+                      style="
+                        padding: 10px 15px;
+                        font-size: 0.7rem;
+                        color: var(--muted);
+                        font-weight: 800;
+                        text-transform: uppercase;
+                      "
+                    >
+                      Operación y Tiempos
+                    </div>
+
+                    <div runat="server" NavigateUrl="Rep_Tiempos.aspx">Tiempos de Operación</div>
+                  </div>
+                </div>
+                <div ID="HyperLink2" runat="server" NavigateUrl="Prospectos.aspx">
+                  <i class="fas fa-binoculars"></i>Prospectos
+                </div>
+                <div ID="HyperLink3" runat="server" NavigateUrl="ParadasNoAutorizadas.aspx">
+                  <i class="fas fa-hand-paper"></i>Paradas No Autorizadas
+                </div>
+                <div ID="HyperLink4" runat="server" NavigateUrl="NotasDeVersion.aspx">
+                  <i class="fas fa-history"></i>Notas de Version
+                </div>
+
+                <hr style="border: 0; height: 1px; background: #eee; margin: 20px 0" />
+
+                <button
+                  ID="btnCerrarSesion"
+                  runat="server"
+                  OnClick="btnCerrarSesion_Click"
+                  Style="color: #c44c4c;"
+                >
+                  <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                </button>
+              </aside>
+
+              <main>
+                <div class="card" style="padding: 0; overflow: hidden; margin-bottom: 25px">
+                  <div style="display: flex; flex-wrap: wrap; align-items: stretch">
+                    <div
+                      style="
+                        flex: 1;
+                        min-width: 150px;
+                        padding: 20px;
+                        display: flex;
+                        align-items: center;
+                        gap: 15px;
+                      "
+                    >
+                      <div
+                        style="
+                          background: #f0f5f2;
+                          width: 45px;
+                          height: 45px;
+                          border-radius: 10px;
+                          display: flex;
+                          align-items: center;
+                          justify-content: center;
+                          flex-shrink: 0;
+                        "
+                      >
+                        <i
+                          class="fas fa-route"
+                          style="font-size: 1.3rem; color: var(--green-base)"
+                        ></i>
+                      </div>
+                      <div>
+                        <span
+                          style="
+                            display: block;
+                            font-size: 1.5rem;
+                            font-weight: 800;
+                            color: var(--green-900);
+                          "
+                        >
+                          <span ID="litRutasActivas" runat="server">0</span>
+                        </span>
+                        <span
+                          style="
+                            color: var(--muted);
+                            font-size: 0.75rem;
+                            font-weight: 600;
+                            text-transform: uppercase;
+                          "
+                          >Rutas</span
+                        >
+                      </div>
+                    </div>
+
+                    <div style="width: 1px; background: #eee; margin: 10px 0"></div>
+
+                    <div
+                      style="
+                        flex: 1;
+                        min-width: 150px;
+                        padding: 20px;
+                        display: flex;
+                        align-items: center;
+                        gap: 15px;
+                      "
+                    >
+                      <div
+                        style="
+                          background: #f4f8f6;
+                          width: 45px;
+                          height: 45px;
+                          border-radius: 10px;
+                          display: flex;
+                          align-items: center;
+                          justify-content: center;
+                          flex-shrink: 0;
+                        "
+                      >
+                        <i
+                          class="fas fa-shopping-basket"
+                          style="font-size: 1.3rem; color: #3b755a"
+                        ></i>
+                      </div>
+                      <div>
+                        <span
+                          style="
+                            display: block;
+                            font-size: 1.5rem;
+                            font-weight: 800;
+                            color: #3b755a;
+                          "
+                        >
+                          <span ID="litPorcentajeGeneral" runat="server">0%</span>
+                        </span>
+                        <span
+                          style="
+                            color: var(--muted);
+                            font-size: 0.75rem;
+                            font-weight: 600;
+                            text-transform: uppercase;
+                          "
+                          >% Venta</span
+                        >
+                      </div>
+                    </div>
+
+                    <div style="width: 1px; background: #eee; margin: 10px 0"></div>
+
+                    <div
+                      style="
+                        flex: 1;
+                        min-width: 150px;
+                        padding: 20px;
+                        display: flex;
+                        align-items: center;
+                        gap: 15px;
+                      "
+                    >
+                      <div
+                        style="
+                          background: #f4f8f6;
+                          width: 45px;
+                          height: 45px;
+                          border-radius: 10px;
+                          display: flex;
+                          align-items: center;
+                          justify-content: center;
+                          flex-shrink: 0;
+                        "
+                      >
+                        <i
+                          class="fas fa-check-double"
+                          style="font-size: 1.3rem; color: #3b755a"
+                        ></i>
+                      </div>
+                      <div>
+                        <span
+                          style="
+                            display: block;
+                            font-size: 1.5rem;
+                            font-weight: 800;
+                            color: #3b755a;
+                          "
+                        >
+                          <span ID="litPorcentajeVisita" runat="server">0%</span>
+                        </span>
+                        <span
+                          style="
+                            color: var(--muted);
+                            font-size: 0.75rem;
+                            font-weight: 600;
+                            text-transform: uppercase;
+                          "
+                          >% Visita</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="controls-row"
+                  style="
+                    background: white;
+                    border: 1px solid #eee;
+                    margin-bottom: 20px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+                  "
+                >
+                  <div style="display: flex; align-items: center; gap: 10px; min-width: 200px">
+                    <i class="fas fa-calendar-alt" style="color: var(--green-base)"></i>
+                    <input
+                      ID="txtFecha"
+                      runat="server"
+                      TextMode="Date"
+                      CssClass="ddl-style"
+                      Style="width: 100%; border: 1px solid #e0e0e0; background: #fafafa;"
+                    />
+                  </div>
+
+                  <div
+                    style="display: flex; align-items: center; gap: 10px; flex: 1; min-width: 250px"
+                  >
+                    <i class="fas fa-warehouse" style="color: var(--green-base)"></i>
+                    <select
+                      [formControl]="ddlCedi"
+                      class="ddl-style"
+                      style="flex: 1; border: 1px solid #e0e0e0; background: #fafafa"
+                      (change)="onCediChange()"
+                    >
+                      <!-- Equivalente al <asp:ListItem Text="-- Seleccionar CEDI --" Value="0" /> -->
+                      <option value="0" disabled selected>-- Seleccionar CEDI --</option>
+
+                      <!-- Opciones generadas dinámicamente -->
+                      @for (cedi of listaCedis; track cedi.id) {
+                        <option [value]="cedi.id">{{ cedi.nombre }}</option>
+                      }
+                    </select>
+                  </div>
+
+                  <div style="display: flex; gap: 10px">
+                    <asp:Button
+                      ID="btnFiltrar"
+                      runat="server"
+                      Text="CONSULTAR"
+                      CssClass="btn-consultar"
+                      OnClick="btnFiltrar_Click"
+                      Style="text-transform: uppercase; letter-spacing: 1px; font-size: 0.75rem;"
+                    />
+
+                    <button
+                      type="button"
+                      class="btn-consultar"
+                      style="background: #f4f4f4; color: #666; box-shadow: none"
+                      onclick="window.location.reload()"
+                    >
+                      <i class="fas fa-sync-alt"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="panel">
+                  <h3 style="color: var(--green-base)">
+                    <i class="fas fa-table"></i>Jornadas Activas
+                  </h3>
+
+                  <table class="grid-view" style="width: 100%; border-collapse: collapse">
+                    <thead>
+                      <tr>
+                        <th>Ruta</th>
+                        <th>Empleado</th>
+                        <th class="text-center">Clientes</th>
+                        <th class="text-center">Ventas</th>
+                        <th class="text-center">Visitas</th>
+                        <th class="text-center">Prosp.</th>
+                        <th class="text-center">KL Detalle</th>
+                        <th class="text-center">Ticket Prom.</th>
+                        <th class="text-center">% Venta.</th>
+                        <th class="text-center">% Visita</th>
+                        <th class="text-center">Km/Actuales</th>
+                        <th class="text-center">Min. e/Vta</th>
+                        <th class="text-center">Max. e/Vta</th>
+                        <th>Inicio</th>
+                        <th>Fin</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @for (ruta of listaRutasActivas; track ruta.idRuta) {
+                        <tr>
+                          <td>{{ ruta.idRuta }}</td>
+                          <td>{{ ruta.Empleado }}</td>
+                          <td class="text-center">{{ ruta.TotalClientes }}</td>
+                          <td class="text-center">{{ ruta.VentasHoy }}</td>
+                          <td class="text-center" style="font-weight: bold">
+                            {{ ruta.VisitasTotales }}
+                          </td>
+                          <td class="text-center" style="font-weight: bold">
+                            {{ ruta.ProspectosHoy }}
+                          </td>
+
+                          <!-- Equivalente a DataFormatString="{0:N2}" -->
+                          <td class="text-center">{{ ruta.KLDetalle | number: '1.2-2' }}</td>
+
+                          <td class="text-center">{{ ruta.TicketPromedio }}</td>
+                          <td class="text-center" style="font-weight: bold">
+                            {{ ruta.PorcentajeVentas }}
+                          </td>
+                          <td class="text-center" style="font-weight: bold">
+                            {{ ruta.PorcentajeVisita }}
+                          </td>
+                          <td class="text-center">{{ ruta.KmActuales }}</td>
+
+                          <!-- Equivalente a ItemStyle-ForeColor="#1E4B33" -->
+                          <td class="text-center" style="color: #1e4b33">
+                            {{ ruta.TiempoMinEntreVenta }}
+                          </td>
+
+                          <!-- Equivalente a ItemStyle-ForeColor="#C44C4C" -->
+                          <td class="text-center" style="color: #c44c4c">
+                            {{ ruta.TiempoMaxEntreVenta }}
+                          </td>
+
+                          <td>{{ ruta.FechaDB }}</td>
+
+                          <!-- Equivalente a NullDisplayText="--" e ItemStyle-ForeColor="#000080" -->
+                          <td style="font-weight: bold; color: #000080">
+                            {{ ruta.HoraFinJornada ? ruta.HoraFinJornada : '--' }}
+                          </td>
+                        </tr>
+                      }
+                    </tbody>
+                  </table>
+                </div>
+              </main>
+            </div>
+
+            
+/*
+Parte interactiva del primer proyecto
+*/
+    :root {
+        --green-900: #143227;
+        --green-base: #1E4B33;
+        --green-500: #3b755a;
+        --green-light: #007B3E;
+        --muted: #6b6f68;
+        --card-bg: rgba(255,255,255,0.98);
+        --cancel-red: #ffb3b3;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html, body {
+        height: 100%;
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        overflow: auto;
+    }
+
+    /* FONDO CON DEGRADADO INSTITUCIONAL */
+    body {
+        background: radial-gradient(circle at top, #fdfdfd 0%, #e9efec 100%);
+        background-attachment: fixed;
+        min-height: 100vh;
+        color: #23302b;
+    }
+
+    /* Navbar */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        background: white;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        z-index: 1200;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+
+    /* BOTÓN HAMBURGUESA ANIMADO */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        background: linear-gradient(180deg, #ffffff, #f2f6f4);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+    }
+
+        .menu-toggle span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background-color: var(--green-base);
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+        }
+
+        /* Animación a X */
+        .menu-toggle.open-btn span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .menu-toggle.open-btn span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+
+        .menu-toggle.open-btn span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+    .navbar-brand {
+        font-weight: 700;
+        color: var(--green-base);
+        margin-left: 10px;
+        letter-spacing: 0.5px;
+    }
+
+    /* Layout */
+    .layout {
+        max-width: 1400px;
+        margin: 85px auto 40px;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 25px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        background: white;
+        border-radius: 15px;
+        padding: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        position: sticky;
+        top: 85px;
+        height: calc(100vh - 120px);
+        overflow-y: auto;
+        transition: all 0.3s ease;
+    }
+
+        .sidebar.collapsed {
+            transform: translateX(-320px);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .sidebar a, .sidebar .asp-link {
+            display: flex;
+            align-items: center;
+            color: #444;
+            text-decoration: none;
+            padding: 12px 15px;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+            .sidebar a i {
+                width: 25px;
+                font-size: 1.1rem;
+                color: var(--green-base);
+            }
+
+            .sidebar a:hover {
+                background: #f0f5f2;
+                color: var(--green-base);
+                transform: translateX(5px);
+            }
+
+    /* Main Content Card */
+    .card {
+        background: white;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    }
+
+        .card h2 {
+            margin-top: 0;
+            color: var(--green-900);
+            font-size: 1.5rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+    /* Submenú de reportes */
+    .report-toggle {
+        display: flex !important;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    #submenuReportes a {
+        font-size: 0.85rem !important;
+        padding: 8px 15px !important;
+        margin-bottom: 2px !important;
+        font-weight: 400 !important;
+        color: #555 !important;
+    }
+
+        #submenuReportes a:hover {
+            background: #eef3f0 !important;
+            color: var(--green-base) !important;
+        }
+
+    .sidebar-group {
+        margin-bottom: 5px;
+    }
+
+    /* Panel de Versiones */
+    .version-container {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 20px;
+        margin-top: 15px;
+    }
+
+    .version-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        border-right: 1px solid #eee;
+        padding-right: 15px;
+    }
+
+    .version-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 15px;
+        border-radius: 8px;
+        background: #f8faf9;
+        color: #444;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.2s;
+        border: 1px solid #e0e0e0;
+    }
+
+        .version-btn:hover, .version-btn.active {
+            background: var(--green-base);
+            color: white;
+            border-color: var(--green-base);
+        }
+
+    .version-content {
+        background: #fafcfb;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #eef3f0;
+    }
+
+    .changelog-box {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        margin-top: 15px;
+        background: #ffffff;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #e5e5e5;
+        min-height: 250px;
+    }
+
+    /* Overlay Mobile */
+    .mobile-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.4);
+        z-index: 1250;
+        display: none;
+        backdrop-filter: blur(2px);
+    }
+
+        .mobile-overlay.show {
+            display: block;
+        }
+
+    /* Mobile Adjustments */
+    @media (max-width: 980px) {
+        .layout {
+            grid-template-columns: 1fr;
+            margin-top: 100px;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: -300px;
+            top: 64px;
+            z-index: 1300;
+            height: calc(100vh - 64px);
+            width: 280px;
+            border-radius: 0 15px 15px 0;
+        }
+
+            .sidebar.open {
+                left: 0;
+            }
+
+        .version-container {
+            grid-template-columns: 1fr;
+        }
+
+        .version-sidebar {
+            border-right: none;
+            border-bottom: 1px solid #eee;
+            padding-right: 0;
+            padding-bottom: 15px;
+        }
+    }

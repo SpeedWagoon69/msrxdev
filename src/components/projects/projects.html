@@ -1,0 +1,684 @@
+<head>
+  <!-- Tu nueva hoja para el Proyecto 1 -->
+  <link rel="stylesheet" href="projects.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+  <link rel="stylesheet" href="app-ln.css" />
+</head>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+<section
+  id="proyectos"
+  class="min-h-screen bg-[#1C1A17] p-6 md:p-12 flex flex-col items-center justify-center"
+>
+  <!-- Contenedor Principal (Agrupa todas las ventanas con espacio entre ellas) -->
+  <div class="w-full max-w-6xl mx-auto flex flex-col gap-16">
+    <!-- Título de la Sección -->
+    <div class="overflow-hidden w-full text-left Texto">
+      <h1 class="text-2xl md:text-3xl font-mono font-bold text-white tracking-wide title-typing">
+        Proyectos & Experiencia
+      </h1>
+      <p class="mt-4 text-neutral-500 font-mono italic">
+        <span class="text-pink-400">// </span> Desplaza hacia abajo para explorar los módulos
+        interactivos.
+      </p>
+    </div>
+
+    <!-- ================= PROYECTO 1: WEB LA NACIONAL ================= -->
+    <div
+      class="w-full bg-[#1e1e1e] border border-neutral-700 rounded-xl overflow-hidden shadow-2xl flex flex-col"
+    >
+      <!-- Barra superior macOS -->
+      <div class="bg-[#2d2d2d] px-4 py-2 flex items-center border-b border-neutral-700">
+        <div class="flex space-x-2">
+          <div class="circle red"></div>
+          <div class="circle yellow"></div>
+          <div class="circle green"></div>
+        </div>
+        <span class="ml-4 text-sm md:text-lg text-neutral-400 font-mono">web_nacional.tsx</span>
+        <div class="window-status hidden md:flex">
+          <span class="status-dot"></span><span>ready</span>
+        </div>
+      </div>
+
+      <!-- Contenido del Proyecto -->
+      <div
+        class="p-6 md:p-8 flex flex-col lg:flex-row gap-8 font-mono text-sm md:text-base leading-relaxed text-neutral-300"
+      >
+        <!-- Código -->
+        <div class="flex-1 overflow-x-auto text-lg">
+          <p>
+            <span class="text-pink-400">const </span>
+            <span class="text-blue-400">portalLaNacional</span> = {{ '{' }}
+          </p>
+          <div class="pl-6 space-y-2 mt-2">
+            <div>
+              <span class="text-sky-300">tipo</span>:
+              <span class="text-green-400">'Web App Dashboard'</span>,
+            </div>
+            <div>
+              <span class="text-sky-300">cliente</span>:
+              <span class="text-green-400">'La Nacional'</span>,
+            </div>
+            <div>
+              <span class="text-sky-300">funcionalidades</span>: [
+              <div class="pl-4 border-l border-neutral-700 ml-2 mt-1">
+                <span class="text-green-400">'Estadísticas y ventas en tiempo real'</span>,<br />
+                <span class="text-green-400">'Monitoreo GPS y rastreo de rutas'</span>,<br />
+                <span class="text-green-400">'Alertas de paradas no autorizadas'</span>,<br />
+                <span class="text-green-400">'Reportes y gestión de choferes'</span>
+              </div>
+              ]
+            </div>
+          </div>
+          <p class="mt-2">{{ '}' }};</p>
+        </div>
+
+        <!-- Zona Interactiva -->
+        <div class="interactive-placeholder dashboard-preview lg:flex-[1.5] w-full">
+          <div class="placeholder-header">
+            <div class="circle-sm bg-red-500"></div>
+            <div class="circle-sm bg-yellow-500"></div>
+            <div class="circle-sm bg-green-500"></div>
+          </div>
+          <div class="placeholder-body">
+            <div class="dhb-ln">
+              <nav class="navbar">
+                <div class="ln-nav-container">
+                  <!-- Hamburguesa -->
+                  <button
+                    id="btnMenuClientes"
+                    type="button"
+                    class="menu-toggle"
+                    [class.open-btn]="isSidebarOpen"
+                    (click)="toggleMenuClientes()"
+                    aria-label="Abrir menú"
+                  >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </button>
+
+                  <!-- Título -->
+                  <span class="navbar-brand"> Monitor La Nacional - DASHBOARD </span>
+                </div>
+
+                <!-- Dashboard -->
+                <div class="ln-nav-subtitle">
+                  <i class="fas fa-layer-group"></i>
+                  Dashboard
+                </div>
+              </nav>
+
+              <div class="layout">
+                <aside
+                  id="sidebarClientes"
+                  class="sidebar"
+                  [class.open]="isSidebarOpen"
+                  [class.collapsed]="isCollapsed"
+                >
+                  <!-- Dashboard -->
+                  <div id="lnkInicio" runat="server">
+                    <i class="fas fa-home"></i>
+                    <span>DashBoard</span>
+                  </div>
+
+                  <!-- Clientes -->
+                  <div id="lnkClientes" runat="server" NavigateUrl="ClientesRuta.aspx">
+                    <i class="fas fa-id-card"></i>
+                    <span>Clientes</span>
+                  </div>
+
+                  <!-- Geolocalización -->
+                  <div id="lnkGeolocalizacion" runat="server" NavigateUrl="Geolocalizacion.aspx">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Geolocalizacion</span>
+                  </div>
+
+                  <!-- Usuarios -->
+                  <div id="HyperLink1" runat="server" NavigateUrl="Usuarios.aspx">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Usuarios</span>
+                  </div>
+
+                  <div class="sidebar-group">
+                    <a href="javascript:void(0);" (click)="toggleReportes()" class="report-toggle">
+                      <i class="fas fa-file-invoice"></i>
+
+                      <span>Reportes</span>
+
+                      <i class="fas fa-chevron-down ln-chevron" [class.rotate]="isReportesOpen"></i>
+                    </a>
+
+                    <!-- Submenú -->
+                    <div id="submenuReportes" [class.open]="isReportesOpen">
+                      <!-- Análisis y ventas -->
+                      <div class="ln-submenu-title">Análisis y Ventas</div>
+
+                      <div runat="server" NavigateUrl="Rep_Analisis8020.aspx">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Análisis 80/20</span>
+                      </div>
+
+                      <div runat="server" NavigateUrl="ReporteCoberturaRuta.aspx">
+                        <i class="fas fa-route"></i>
+                        <span>Por Ruta</span>
+                      </div>
+
+                      <div runat="server" NavigateUrl="ReporteCoberturaCEDI.aspx">
+                        <i class="fas fa-warehouse"></i>
+                        <span>Por CEDI</span>
+                      </div>
+
+                      <div runat="server" NavigateUrl="ReporteTopClientes.aspx">
+                        <i class="fas fa-trophy"></i>
+                        <span>Top 100</span>
+                      </div>
+
+                      <div runat="server" NavigateUrl="ReporteClientesSinVenta.aspx">
+                        <i class="fas fa-user-times"></i>
+                        <span>Clientes sin venta</span>
+                      </div>
+
+                      <!-- Operación y tiempos -->
+                      <div class="ln-submenu-title">Operación y Tiempos</div>
+
+                      <div runat="server" NavigateUrl="Rep_Tiempos.aspx">
+                        <i class="fas fa-clock"></i>
+                        <span>Tiempos de Operación</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Prospectos -->
+                  <div id="HyperLink2" runat="server" NavigateUrl="Prospectos.aspx">
+                    <i class="fas fa-binoculars"></i>
+                    <span>Prospectos</span>
+                  </div>
+
+                  <!-- Paradas no autorizadas -->
+                  <div id="HyperLink3" runat="server" NavigateUrl="ParadasNoAutorizadas.aspx">
+                    <i class="fas fa-hand-paper"></i>
+                    <span>Paradas No Autorizadas</span>
+                  </div>
+
+                  <!-- Notas de versión -->
+                  <div id="HyperLink4" runat="server" NavigateUrl="NotasDeVersion.aspx">
+                    <i class="fas fa-history"></i>
+                    <span>Notas de Version</span>
+                  </div>
+
+                  <!-- Separador -->
+                  <hr class="ln-divider" />
+
+                  <!-- Cerrar sesión -->
+                  <button
+                    id="btnCerrarSesion"
+                    runat="server"
+                    OnClick="btnCerrarSesion_Click"
+                    class="ln-btn-logout"
+                  >
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar Sesión</span>
+                  </button>
+                </aside>
+                <main>
+                  <div class="card card-no-padding">
+                    <div class="flex-stretch">
+                      <!-- Rutas -->
+                      <div class="stat-box">
+                        <div class="icon-box-primary">
+                          <i class="fas fa-route"></i>
+                        </div>
+
+                        <div>
+                          <span class="stat-value stat-value-dark">
+                            <span id="litRutasActivas" runat="server"> 6 </span>
+                          </span>
+
+                          <span class="stat-label"> Rutas </span>
+                        </div>
+                      </div>
+
+                      <div class="vertical-divider"></div>
+
+                      <!-- Ventas -->
+                      <div class="stat-box">
+                        <div class="icon-box-secondary">
+                          <i class="fas fa-shopping-basket"></i>
+                        </div>
+
+                        <div>
+                          <span class="stat-value stat-value-accent">
+                            <span id="litPorcentajeGeneral" runat="server"> 47.37% </span>
+                          </span>
+
+                          <span class="stat-label"> % Venta </span>
+                        </div>
+                      </div>
+
+                      <div class="vertical-divider"></div>
+
+                      <!-- Visitas -->
+                      <div class="stat-box">
+                        <div class="icon-box-secondary">
+                          <i class="fas fa-check-double"></i>
+                        </div>
+
+                        <div>
+                          <span class="stat-value stat-value-accent">
+                            <span id="litPorcentajeVisita" runat="server"> 56.84% </span>
+                          </span>
+
+                          <span class="stat-label"> % Visita </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="controls-row">
+                    <!-- Fecha -->
+                    <div class="control-date-group">
+                      <i class="fas fa-calendar-alt"></i>
+
+                      <input type="date" id="txtFecha" class="ddl-style input-form-styled" />
+                    </div>
+
+                    <!-- CEDI -->
+                    <div class="control-select-group">
+                      <i class="fas fa-warehouse"></i>
+
+                      <select
+                        [formControl]="ddlCedi"
+                        class="ddl-style select-flex-styled"
+                        (change)="onCediChange()"
+                      >
+                        <option value="0">Todos los CEDIS</option>
+
+                        @for (cedi of listaCedis; track cedi.id) {
+                          <option [value]="cedi.id">
+                            {{ cedi.nombre }}
+                          </option>
+                        }
+                      </select>
+                    </div>
+
+                    <!-- Botones -->
+                    <div class="button-flex-group">
+                      <!-- Consultar -->
+                      <button type="button" class="btn-consultar">
+                        <i class="fas fa-search"></i>
+                        <span>Consultar</span>
+                      </button>
+
+                      <!-- Restablecer -->
+                      <button
+                        type="button"
+                        class="btn-consultar btn-reset-styled"
+                        onclick="window.location.reload()"
+                      >
+                        <i class="fas fa-sync-alt"></i>
+                        <span>Restablecer</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="panel">
+                    <h3 class="panel-title-colored">
+                      <i class="fas fa-table"></i>
+                      Jornadas Activas
+                    </h3>
+
+                    <table class="grid-view table-collapse">
+                      <thead>
+                        <tr>
+                          <th>Ruta</th>
+
+                          <th>Empleado</th>
+
+                          <th class="text-center">Clientes</th>
+
+                          <th class="text-center">Ventas</th>
+
+                          <th class="text-center">Visitas</th>
+
+                          <th class="text-center">Prosp.</th>
+
+                          <th class="text-center">KL Detalle</th>
+
+                          <th class="text-center">Ticket Prom.</th>
+
+                          <th class="text-center">%Venta.</th>
+
+                          <th class="text-center">%Visita</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        @for (ruta of listaRutasActivas; track ruta.idRuta) {
+                          <tr>
+                            <td>
+                              {{ ruta.idRuta }}
+                            </td>
+
+                            <td>
+                              {{ ruta.Empleado }}
+                            </td>
+
+                            <td class="text-center">
+                              {{ ruta.TotalClientes }}
+                            </td>
+
+                            <td class="text-center">
+                              {{ ruta.VentasHoy }}
+                            </td>
+
+                            <td class="text-center text-bold">
+                              {{ ruta.VisitasTotales }}
+                            </td>
+
+                            <td class="text-center text-bold">
+                              {{ ruta.ProspectosHoy }}
+                            </td>
+
+                            <td class="text-center">
+                              {{ ruta.KLDetalle | number: '1.2-2' }}
+                            </td>
+
+                            <td class="text-center">
+                              {{ ruta.TicketPromedio }}
+                            </td>
+
+                            <td class="text-center text-bold">
+                              {{ ruta.PorcentajeVentas }}
+                            </td>
+
+                            <td class="text-center text-bold">
+                              {{ ruta.PorcentajeVisita }}
+                            </td>
+                          </tr>
+                        }
+                      </tbody>
+                    </table>
+                  </div>
+                </main>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div class="window-footer"><span class="text-green-400">● </span><span>UTF-8</span></div>
+    </div>
+
+    <!-- ================= PROYECTO 2: MÓVIL LA NACIONAL ================= -->
+    <div
+      class="w-full bg-[#1e1e1e] border border-neutral-700 rounded-xl overflow-hidden shadow-2xl flex flex-col"
+    >
+      <!-- Barra superior macOS -->
+      <div class="bg-[#2d2d2d] px-4 py-2 flex items-center border-b border-neutral-700">
+        <div class="flex space-x-2">
+          <div class="circle red"></div>
+          <div class="circle yellow"></div>
+          <div class="circle green"></div>
+        </div>
+        <span class="ml-4 text-sm md:text-lg text-neutral-400 font-mono">app_movil.tsx</span>
+        <div class="window-status hidden md:flex">
+          <span class="status-dot"></span><span>running_simulator</span>
+        </div>
+      </div>
+
+      <!-- Contenido del Proyecto -->
+      <div
+        class="p-6 md:p-8 flex flex-col lg:flex-row gap-8 font-mono text-sm md:text-base leading-relaxed text-neutral-300"
+      >
+        <!-- Código -->
+        <div class="flex-1 overflow-x-auto text-lg">
+          <p>
+            <span class="text-pink-400">const </span>
+            <span class="text-blue-400">appMovilLaNacional</span> = {{ '{' }}
+          </p>
+          <div class="pl-6 space-y-2 mt-2">
+            <div>
+              <span class="text-sky-300">tipo</span>:
+              <span class="text-green-400">'Aplicación Móvil en Campo'</span>,
+            </div>
+            <div>
+              <span class="text-sky-300">cliente</span>:
+              <span class="text-green-400">'La Nacional'</span>,
+            </div>
+            <div>
+              <span class="text-sky-300">funcionalidades</span>: [
+              <div class="pl-4 border-l border-neutral-700 ml-2 mt-1">
+                <span class="text-green-400">'Gestión de ventas e inventario'</span>,<br />
+                <span class="text-green-400">'Levantamiento y censo de prospectos'</span>,<br />
+                <span class="text-green-400">'Impresión de tickets y mermas'</span>,<br />
+                <span class="text-green-400">'Tracking de ubicación en 2do plano'</span>
+              </div>
+              ]
+            </div>
+          </div>
+          <p class="mt-2">{{ '}' }};</p>
+        </div>
+
+        <!-- Zona Interactiva (LOGIN) -->
+        <div class="flex-1 flex justify-center lg:justify-end">
+          <div class="interactive-placeholder mobile-frame min-h-[500px] w-full max-w-[250px]">
+            <div class="placeholder-body flex-col justify-start">
+              <div class="android-screen">
+                <div class="navbar-app">
+                  <span class="navbar-text"> PASTEURIZADORA DE BAJA CALIFORNIA </span>
+                </div>
+                <span class="android-version"> Versión 1.0 </span>
+
+                <!-- Logo / imagen superior -->
+                <div class="android-logo">
+                  <img src="/img/inicio_proti.png" alt="Logo" />
+                </div>
+
+                <!-- Formulario -->
+                <div class="login-container">
+                  <!-- Usuario -->
+                  <div class="android-input">
+                    <div class="input-icon">
+                      <i class="fas fa-user"></i>
+                    </div>
+
+                    <input type="text" placeholder="Usuario" inputmode="numeric" />
+                  </div>
+
+                  <!-- Password -->
+                  <!-- Password -->
+                  <div class="android-input">
+                    <div class="input-icon">
+                      <i class="fas fa-lock"></i>
+                    </div>
+
+                    <input
+                      [type]="mostrarPassword ? 'text' : 'password'"
+                      placeholder="Password"
+                      inputmode="numeric"
+                    />
+
+                    <button
+                      type="button"
+                      class="password-toggle"
+                      (click)="togglePassword()"
+                      [attr.aria-label]="
+                        mostrarPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'
+                      "
+                    >
+                      <i
+                        class="fas"
+                        [class.fa-eye]="!mostrarPassword"
+                        [class.fa-eye-slash]="mostrarPassword"
+                      ></i>
+                    </button>
+                  </div>
+
+                  <!-- Botón -->
+                  <button class="android-login-button">
+                    <i class="fas fa-lock login-lock"></i>
+                    <span>Inicio de Sesión</span>
+                  </button>
+                </div>
+
+                <!-- Loading -->
+                <div class="android-loading">
+                  <div class="spinner"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Zona Interactiva (DASHBOARD) -->
+        <div class="flex-1 flex justify-center lg:justify-end">
+          <div class="interactive-placeholder mobile-frame min-h-[500px] w-full max-w-[250px]">
+            <div class="placeholder-body flex-col justify-start">
+              <div class="android-screen"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="window-footer"><span class="text-green-400">● </span><span>UTF-8</span></div>
+    </div>
+
+    <!-- ================= PROYECTO 4: KARAOKE ================= -->
+    <div
+      class="w-full bg-[#1e1e1e] border border-neutral-700 rounded-xl overflow-hidden shadow-2xl flex flex-col"
+    >
+      <!-- Barra superior macOS -->
+      <div class="bg-[#2d2d2d] px-4 py-2 flex items-center border-b border-neutral-700">
+        <div class="flex space-x-2">
+          <div class="circle red"></div>
+          <div class="circle yellow"></div>
+          <div class="circle green"></div>
+        </div>
+        <span class="ml-4 text-sm md:text-lg text-neutral-400 font-mono">karaoke_app.tsx</span>
+        <div class="window-status hidden md:flex">
+          <span class="status-dot"></span><span>ready</span>
+        </div>
+      </div>
+
+      <!-- Contenido del Proyecto -->
+      <div
+        class="p-6 md:p-8 flex flex-col lg:flex-row gap-8 font-mono text-sm md:text-base leading-relaxed text-neutral-300"
+      >
+        <!-- Código -->
+        <div class="flex-1 overflow-x-auto">
+          <p>
+            <span class="text-pink-400">const </span>
+            <span class="text-blue-400">gestorKaraoke</span> = {{ '{' }}
+          </p>
+          <div class="pl-6 space-y-2 mt-2">
+            <div>
+              <span class="text-sky-300">tipo</span>:
+              <span class="text-green-400">'Web Fullstack'</span>,
+            </div>
+            <div>
+              <span class="text-sky-300">cliente</span>:
+              <span class="text-green-400">'Privado'</span>,
+            </div>
+            <div>
+              <span class="text-sky-300">stack</span>:
+              <span class="text-green-400">'Supabase, PostgreSQL'</span>,
+            </div>
+            <div>
+              <span class="text-sky-300">arquitectura</span>: {{ '{' }}
+              <div class="pl-4 border-l border-neutral-700 ml-2 mt-1">
+                <span class="text-sky-300">clienteUI</span>:
+                <span class="text-green-400">'Formulario envío de canciones'</span>,<br />
+                <span class="text-sky-300">djDashboard</span>:
+                <span class="text-green-400">'Gestión de cola y agrupamiento'</span>
+              </div>
+              {{ '}' }}
+            </div>
+          </div>
+          <p class="mt-2">{{ '}' }};</p>
+        </div>
+
+        <!-- Zona Interactiva -->
+        <div class="interactive-placeholder flex-1 min-h-[250px]">
+          <div class="placeholder-header"><div class="circle-sm bg-neutral-600"></div></div>
+          <div class="placeholder-body">
+            <span class="placeholder-text">/* Render: DJ Dashboard View */</span>
+            <div class="interact-zone"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div class="window-footer"><span class="text-green-400">● </span><span>UTF-8</span></div>
+    </div>
+
+    <!-- ================= PROYECTO 5: GESTOR BIBLIOTECARIO ================= -->
+    <div
+      class="w-full bg-[#1e1e1e] border border-neutral-700 rounded-xl overflow-hidden shadow-2xl flex flex-col"
+    >
+      <!-- Barra superior macOS -->
+      <div class="bg-[#2d2d2d] px-4 py-2 flex items-center border-b border-neutral-700">
+        <div class="flex space-x-2">
+          <div class="circle red"></div>
+          <div class="circle yellow"></div>
+          <div class="circle green"></div>
+        </div>
+        <span class="ml-4 text-sm md:text-lg text-neutral-400 font-mono"
+          >gestor_biblioteca.tsx</span
+        >
+        <div class="window-status hidden md:flex">
+          <span class="status-dot"></span><span>ready</span>
+        </div>
+      </div>
+
+      <!-- Contenido del Proyecto -->
+      <div
+        class="p-6 md:p-8 flex flex-col lg:flex-row gap-8 font-mono text-sm md:text-base leading-relaxed text-neutral-300"
+      >
+        <!-- Código -->
+        <div class="flex-1 overflow-x-auto">
+          <p>
+            <span class="text-pink-400">const </span>
+            <span class="text-blue-400">gestorBibliotecario</span> = {{ '{' }}
+          </p>
+          <div class="pl-6 space-y-2 mt-2">
+            <div>
+              <span class="text-sky-300">tipo</span>:
+              <span class="text-green-400">'Sistema Académico Universitario'</span>,
+            </div>
+            <div>
+              <span class="text-sky-300">modulosAdmin</span>: [
+              <div class="pl-4 border-l border-neutral-700 ml-2 mt-1">
+                <span class="text-green-400">'Inventario de libros'</span>,<br />
+                <span class="text-green-400">'Préstamos y Atrasos'</span>,<br />
+                <span class="text-green-400">'Registro de Accesos al área'</span>
+              </div>
+              ],
+            </div>
+            <div>
+              <span class="text-sky-300">modulosAlumno</span>: [
+              <div class="pl-4 border-l border-neutral-700 ml-2 mt-1">
+                <span class="text-green-400">'Búsqueda de Catálogo'</span>,<br />
+                <span class="text-green-400">'Ubicación Física exacta'</span>
+              </div>
+              ]
+            </div>
+          </div>
+          <p class="mt-2">{{ '}' }};</p>
+        </div>
+
+        <!-- Zona Interactiva -->
+        <div class="interactive-placeholder flex-1 min-h-[250px]">
+          <div class="placeholder-header"><div class="circle-sm bg-neutral-600"></div></div>
+          <div class="placeholder-body">
+            <span class="placeholder-text">/* Render: Búsqueda Catálogo Alumnos */</span>
+            <div class="interact-zone"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div class="window-footer"><span class="text-green-400">● </span><span>UTF-8</span></div>
+    </div>
+  </div>
+</section>

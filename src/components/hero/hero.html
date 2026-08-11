@@ -1,0 +1,198 @@
+<!-- Fondo principal oscuro neutro -->
+<section
+  id="hero"
+  class="min-h-screen bg-[#1C1A17] flex flex-col items-center justify-center p-6 md:p-12"
+>
+  <!-- Contenedor general amplio -->
+  <div class="w-full max-w-5xl mx-auto flex flex-col items-center gap-8">
+    <!-- SECCIÓN SUPERIOR: Título + Biografía ancha a la izquierda, Círculo cerca a la derecha -->
+    <div class="w-full grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-center">
+      <!-- Columna Izquierda: Título y Caja de Biografía Ancha -->
+      <div class="flex flex-col gap-4 w-full">
+        <!-- Título -->
+        <div class="overflow-hidden inline-block">
+          <h1
+            class="text-2xl md:text-3xl font-mono font-bold text-white tracking-wide title-typing"
+          >
+            Quien es Miguel Saldaña?
+          </h1>
+        </div>
+
+        <!-- 1. Caja de Biografía con efecto de escritura al hacer Hover -->
+        <div
+          #perfilWindow
+          class="window bg-[#1e1e1e] border border-neutral-700 rounded-xl overflow-hidden shadow-2xl w-2xl"
+        >
+          <!-- Barra superior estilo macOS -->
+          <div class="bg-[#2d2d2d] px-4 py-2 flex items-center border-b border-neutral-700">
+            <div class="flex space-x-2">
+              <div class="circle red" (mouseenter)="closeWindow(perfilWindow)"></div>
+
+              <div class="circle yellow" (mouseenter)="minimizeWindow(perfilWindow)"></div>
+
+              <div class="circle green" (mouseenter)="maximizeWindow(perfilWindow)"></div>
+            </div>
+            <span class="ml-4 text-lg text-neutral-400 font-mono">profile.ts</span>
+            <div class="window-status">
+              <span class="status-dot"></span>
+
+              <span>ready</span>
+            </div>
+          </div>
+
+          <!-- Contenido con Animación de Escritura -->
+          <div
+            class="p-6 md:p-8 font-mono text-base md:text-xl leading-relaxed text-neutral-300 group cursor-pointer"
+          >
+            <p>
+              <span class="text-pink-400">const </span> <span class="text-blue-400">biografia</span>
+              <span class="text-pink-400">=</span> <span class="text-green-400">`</span>
+            </p>
+
+            <div class="pl-4 text-green-400">
+              <!-- Texto estático -->
+              Ingeniero en Sistemas enfocado en el desarrollo de aplicaciones móviles y soluciones
+              web, con más de 3 años de experiencia en el área de sistemas<br />
+
+              <!-- Texto que se anima -->
+              <span class="typing-container">
+                <span class="typing-animation"> dentro del sector industrial.</span>
+              </span>
+            </div>
+
+            <p><span class="text-green-400">`</span>;</p>
+          </div>
+          <div class="window-footer">
+            <span>
+              <span class="text-green-400"> ● </span>
+
+              bio
+            </span>
+
+            <span> profile.ts </span>
+
+            <span> UTF-8 </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Círculo para la foto de perfil -->
+      <div class="flex justify-center md:pt-10">
+        <div
+          class="w-40 h-40 md:w-48 md:h-48 bg-[#2d2d2d] rounded-full border-4 border-neutral-800 shadow-2xl relative overflow-hidden flex items-center justify-center shrink-0"
+        >
+          <img
+            src="/img/Pic.png"
+            alt="Miguel Saldaña"
+            class="w-full h-full object-cover scale-150 object-[center_22%]"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN INFERIOR: Menú de navegación centrado abajo -->
+    <div class="w-full flex justify-center">
+      <div
+        #navigationWindow
+        class="bg-[#1e1e1e] border border-neutral-700 rounded-xl overflow-hidden shadow-2xl w-full max-w-xl"
+      >
+        <!-- Barra superior -->
+        <div class="bg-[#2d2d2d] px-4 py-2 flex items-center border-b border-neutral-700">
+          <div class="flex space-x-2">
+            <div class="circle red" (mouseenter)="closeWindow(navigationWindow)"></div>
+
+            <div class="circle yellow" (mouseenter)="minimizeWindow(navigationWindow)"></div>
+
+            <div class="circle green" (mouseenter)="maximizeWindow(navigationWindow)"></div>
+          </div>
+          <span class="ml-4 text-lg text-neutral-400 font-mono">navegation.ts</span>
+          <div class="window-status">
+            <span class="status-dot"></span>
+
+            <span>ready</span>
+          </div>
+        </div>
+
+        <!-- Contenido -->
+        <div class="p-5 md:p-6 flex font-mono text-sm md:text-xl leading-loose text-neutral-300">
+          <!-- Números de línea -->
+          <div
+            class="text-neutral-600 text-right pr-4 select-none flex flex-col border-r border-neutral-700"
+          >
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span>7</span>
+            <span>8</span>
+          </div>
+
+          <!-- Enlaces interactivos -->
+          <div class="pl-4 flex flex-col w-full overflow-x-auto">
+            <a
+              href="#sobre-mi"
+              class="hover:bg-white/10 transition-colors cursor-pointer rounded px-2 -ml-2 inline-block whitespace-nowrap"
+            >
+              <span class="text-pink-400">await </span>
+              <span class="text-blue-400">loadSection</span>(<span class="text-green-400"
+                >'Sobre mi'</span
+              >);
+            </a>
+            <a
+              href="#tech-stack"
+              class="hover:bg-white/10 transition-colors cursor-pointer rounded px-2 -ml-2 inline-block whitespace-nowrap"
+            >
+              <span class="text-pink-400">await </span>
+              <span class="text-blue-400">getTechStack</span>(<span class="text-green-400"
+                >'Tecnologias'</span
+              >);
+            </a>
+            <a
+              href="#proyectos"
+              class="hover:bg-white/10 transition-colors cursor-pointer rounded px-2 -ml-2 inline-block whitespace-nowrap"
+            >
+              <span class="text-pink-400">await </span>
+              <span class="text-blue-400">loadSection</span>(<span class="text-green-400"
+                >'Proyectos'</span
+              >);
+            </a>
+            <div
+              class="h-7 md:h-8 px-2 -ml-2 flex items-center text-neutral-500 italic whitespace-nowrap"
+            >
+              // Conecta conmigo
+            </div>
+            <a
+              href="#redes"
+              class="hover:bg-white/10 transition-colors cursor-pointer rounded px-2 -ml-2 inline-block whitespace-nowrap"
+            >
+              <span class="text-pink-400">import</span> {{ '{' }}
+              <span class="text-yellow-300">Redes</span> {{ '}' }}
+              <span class="text-pink-400">from</span>
+              <span class="text-green-400">'./socials'</span>;
+            </a>
+            <a
+              href="#contacto"
+              class="hover:bg-white/10 transition-colors cursor-pointer rounded px-2 -ml-2 inline-block whitespace-nowrap"
+            >
+              <span class="text-sky-300">console</span>.<span class="text-yellow-300">log</span
+              >(<span class="text-green-400">'Contacto'</span>);
+            </a>
+          </div>
+        </div>
+        <div class="window-footer">
+          <span>
+            <span class="text-green-400"> ● </span>
+
+            4 methods
+          </span>
+
+          <span> navegation.ts </span>
+
+          <span> UTF-8 </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

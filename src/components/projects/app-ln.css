@@ -1,0 +1,467 @@
+.android-screen {
+  width: 100%;
+  height: 100%;
+  min-height: 350px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* =========================
+   LOGO
+   ========================= */
+
+.android-logo {
+  width: 100%;
+  height: 125px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+  box-sizing: border-box;
+}
+
+.android-logo img {
+  width: auto;
+  height: auto;
+
+  max-width: 85%;
+  max-height: 105px;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+/* =========================
+   INPUTS
+   ========================= */
+
+.android-input {
+  position: relative;
+  width: 100%;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #d9dfdc;
+  border-radius: 10px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.25s ease,
+    background 0.3s ease;
+}
+
+/* =========================
+   BARRA VERDE LATERAL
+   ========================= */
+
+.android-input::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 0;
+  background: linear-gradient(180deg, #43ec8f, #206e44);
+  border-radius: 0 3px 3px 0;
+  transition: height 0.3s ease;
+}
+
+/* =========================
+   HOVER
+   ========================= */
+
+.android-input:hover {
+  transform: translateY(-2px);
+  border-color: #9bb9aa;
+  background: #fcfefd;
+  box-shadow: 0 5px 12px rgba(30, 75, 51, 0.1);
+}
+
+.android-input:hover::before {
+  height: 100%;
+}
+
+/* =========================
+   ICONO
+   ========================= */
+
+.input-icon {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 7px;
+  border-radius: 7px;
+  background: #f0f5f2;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.input-icon i {
+  font-size: 13px;
+  color: #206e44;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* =========================
+   ICONO HOVER
+   ========================= */
+
+.android-input:hover .input-icon {
+  background: #e3f4ea;
+  transform: scale(1.05);
+  box-shadow: 0 2px 6px rgba(30, 75, 51, 0.12);
+}
+
+.android-input:hover .input-icon i {
+  color: #007b3e;
+  transform: scale(1.12);
+}
+
+/* =========================
+   INPUT
+   ========================= */
+
+.android-input input {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0;
+  background: transparent;
+  color: #23302b;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+
+.android-input input::placeholder {
+  color: #999;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.android-input:hover input::placeholder {
+  color: #777;
+}
+
+/* =========================
+   FOCUS
+   ========================= */
+
+.android-input:focus-within {
+  transform: translateY(-2px);
+  border-color: #206e44;
+  background: #ffffff;
+  box-shadow:
+    0 5px 15px rgba(30, 75, 51, 0.12),
+    0 0 0 2px rgba(67, 236, 143, 0.1);
+}
+
+.android-input:focus-within::before {
+  height: 100%;
+}
+
+.android-input:focus-within .input-icon {
+  background: #206e44;
+  transform: scale(1.08);
+  box-shadow: 0 3px 8px rgba(30, 75, 51, 0.2);
+}
+
+.android-input:focus-within .input-icon i {
+  color: #43ec8f;
+  transform: scale(1.12);
+}
+
+.android-input:focus-within input::placeholder {
+  color: #aaa;
+  transform: translateX(2px);
+}
+
+/* =========================
+   PASSWORD TOGGLE
+   ========================= */
+
+.password-toggle {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #aaa;
+  cursor: pointer;
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.password-toggle:hover {
+  color: #206e44;
+  background: #f0f5f2;
+  transform: scale(1.08);
+}
+
+.password-toggle i {
+  font-size: 11px;
+  transition: transform 0.25s ease;
+}
+
+.password-toggle:hover i {
+  transform: scale(1.15);
+}
+/* =========================
+   BOTÓN LOGIN
+   ========================= */
+
+.android-login-button {
+  position: relative;
+  width: 100%;
+  min-height: 49px;
+  padding: 7px 20px 7px 20px;
+  border-radius: 12px;
+  border: 3px solid #206e44;
+  background: linear-gradient(180deg, #ffa500 0%, #006400 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.4s ease;
+}
+
+/* =========================
+   EFECTO DE BRILLO
+   ========================= */
+
+.android-login-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+
+/* =========================
+   HOVER
+   ========================= */
+
+.android-login-button:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: #143f28;
+  background: linear-gradient(180deg, #ffb52e 0%, #08783e 100%);
+  box-shadow:
+    0 8px 18px rgba(0, 100, 0, 0.3),
+    0 0 0 3px rgba(67, 236, 143, 0.1);
+}
+
+/* Brillo */
+
+.android-login-button:hover::before {
+  left: 130%;
+}
+
+/* =========================
+   CLICK
+   ========================= */
+
+.android-login-button:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(180deg, #43ec8f 0%, #206e44 100%);
+}
+
+/* =========================
+   ICONO CANDADO
+   ========================= */
+
+.login-lock {
+  position: relative;
+  font-size: 16px;
+  color: #fff;
+  transition:
+    transform 0.35s ease,
+    color 0.35s ease,
+    filter 0.35s ease;
+}
+
+/* Candado al pasar mouse */
+
+.android-login-button:hover .login-lock {
+  color: #43ec8f;
+  transform: rotate(-8deg) scale(1.15);
+  filter: drop-shadow(0 0 4px rgba(67, 236, 143, 0.7));
+}
+
+/* Animación del candado al hacer click */
+
+.android-login-button:active .login-lock {
+  color: #ffffff;
+  transform: scale(0.9) rotate(8deg);
+}
+
+/* =========================
+   TEXTO
+   ========================= */
+
+.android-login-button span {
+  transition:
+    transform 0.25s ease,
+    letter-spacing 0.25s ease;
+}
+
+.android-login-button:hover span {
+  transform: translateX(2px);
+  letter-spacing: 0.2px;
+}
+/* =========================
+   VERSION
+   ========================= */
+
+.android-version {
+  width: 100%;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 10px;
+  box-sizing: border-box;
+  font-size: 7px;
+  font-weight: 600;
+  color: #7a827e;
+  background: #f8faf9;
+  border-bottom: 1px solid #eef2ef;
+}
+
+/* =========================
+   LOADING
+   ========================= */
+
+.android-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.spinner {
+  width: 25px;
+  height: 25px;
+  border: 3px solid #eee;
+  border-top-color: #c62828;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.login-container {
+  width: 88%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.android-login-button {
+  margin-top: 40px;
+}
+/* =========================
+   PASSWORD TOGGLE ACTIVO
+   ========================= */
+
+.password-toggle:active {
+  transform: scale(0.92);
+}
+
+.android-input:focus-within .password-toggle {
+  color: #206e44;
+}
+
+.password-toggle i {
+  display: inline-block;
+  font-size: 11px;
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+.password-toggle:hover i {
+  transform: scale(1.15);
+}
+
+.password-toggle .fa-eye {
+  color: #888;
+}
+
+.password-toggle .fa-eye-slash {
+  color: #206e44;
+
+  transform: scale(1.05);
+}
+
+.navbar-app {
+  width: 100%;
+  height: 32px;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  background: #206e44;
+  color: #ffffff;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.navbar-text {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.2px;
+}

@@ -1,0 +1,118 @@
+/* --- Estilos base para las tipografías --- */
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* --- Botones macOS --- */
+.circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.circle:hover {
+  transform: scale(1.2);
+}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+/* --- Status de la ventana --- */
+.window-status {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: monospace;
+  font-size: 12px;
+  color: #737373;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.7);
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* --- Estilos Formulario / Inputs --- */
+.code-input {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px dashed #404040;
+  border-radius: 6px;
+  padding: 8px 12px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.code-input:focus {
+  border-color: #27c93f; /* Verde al enfocar para simular string */
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 10px rgba(39, 201, 63, 0.1);
+}
+
+.code-input::placeholder {
+  color: rgba(74, 222, 128, 0.3);
+}
+
+/* --- Botón Submit estilo Código --- */
+.submit-btn {
+  background: rgba(45, 45, 45, 0.4);
+  border: 1px solid #404040;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: rgba(45, 45, 45, 0.8);
+  border-color: #60a5fa; /* Borde azul al pasar el mouse */
+}
+
+.submit-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+  color: #fff;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+.window-footer {
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 0 14px;
+
+  background: #252525;
+
+  border-top: 1px solid #333;
+
+  color: #525252;
+
+  font-family: monospace;
+  font-size: 10px;
+}
+.window-footer span:nth-child(2) {
+  margin-left: auto;
+}

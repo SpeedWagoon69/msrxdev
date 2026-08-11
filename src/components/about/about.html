@@ -1,0 +1,113 @@
+<section
+  id="sobre-mi"
+  class="min-h-screen bg-[#1C1A17] p-6 md:p-12 flex flex-col items-center justify-center"
+>
+  <!-- Contenedor principal estilo Ventana (Mismo diseño) -->
+  <div class="w-full max-w-4xl mx-auto flex flex-col gap-4">
+    <div class="overflow-hidden w-full text-left Texto">
+      <h1 class="text-2xl md:text-3xl font-mono font-bold text-white tracking-wide title-typing">
+        Sobre Mi
+      </h1>
+    </div>
+    <div
+      class="w-full max-w-4xl bg-[#1e1e1e] border border-neutral-700 rounded-xl overflow-hidden shadow-2xl"
+    >
+      <!-- Barra superior estilo macOS -->
+      <div
+        #aboutWindow
+        class="bg-[#2d2d2d] px-4 py-2 flex items-center border-b border-neutral-700"
+      >
+        <div class="flex space-x-2">
+          <div class="circle red" (mouseenter)="closeWindow(aboutWindow)"></div>
+
+          <div class="circle yellow" (mouseenter)="minimizeWindow(aboutWindow)"></div>
+
+          <div class="circle green" (mouseenter)="maximizeWindow(aboutWindow)"></div>
+        </div>
+        <span class="ml-4 text-lg text-neutral-400 font-mono">about_me.ts</span>
+        <div class="window-status">
+          <span class="status-dot"></span>
+
+          <span>ready</span>
+        </div>
+      </div>
+
+      <!-- Contenido en formato de código - Actualizado para ser personal -->
+      <div
+        class="p-8 font-mono text-base md:text-lg leading-relaxed text-neutral-300 overflow-x-auto"
+      >
+        <p class="mb-4">
+          <span class="text-pink-400">export const </span>
+          <span class="text-blue-400">miguelSaldana</span>:
+          <span class="text-yellow-300">PersonalProfile</span> =
+          {{ '{' }}
+        </p>
+
+        <div class="pl-6 space-y-2">
+          <div>
+            <span class="text-sky-300">nombre completo</span>:
+            <span class="text-green-400">'Miguel Guadalupe Saldaña Ramírez'</span>,
+          </div>
+
+          <div>
+            <span class="text-sky-300">titulo</span>:
+            <span class="text-green-400">'Ingeniero en Sistemas / Software Developer'</span>,
+          </div>
+
+          <div>
+            <span class="text-sky-300">enfoque</span>:
+            <span class="text-green-400">'Desarrollo de aplicaciones móviles y soluciones web'</span
+            >,
+          </div>
+
+          <div>
+            <span class="text-sky-300">experiencia sector industrial</span>:
+            <span class="text-green-400">'+3 años aportando soluciones tecnológicas'</span>,
+          </div>
+
+          <!-- Reemplazamos 'stack' por aspectos de tu perfil profesional -->
+          <div>
+            <span class="text-sky-300">filosofia de trabajo</span>: [
+            <span class="text-green-400">'Soluciones escalables'</span>,
+            <span class="text-green-400">'Arquitectura limpia'</span>,
+            <span class="text-green-400">'Enfoque en usuario'</span>
+            ],
+          </div>
+
+          <div>
+            <span class="text-sky-300">intereses profesionales</span>: [
+            <span class="text-green-400">'Optimización de procesos'</span>,
+            <span class="text-green-400">'Integración de sistemas'</span>,
+            <span class="text-green-400">'Aprendizaje continuo'</span>
+            ],
+          </div>
+        </div>
+
+        <p class="mt-4">{{ '}' }};</p>
+
+        <!-- Texto descriptivo adicional - Más narrativo y personal -->
+        <div class="mt-8 pt-6 border-t border-neutral-700 text-neutral-400 italic">
+          <span class="text-pink-400">// </span> Soy un solucionador de problemas por naturaleza. Mi
+          trayectoria en el sector industrial
+          <br />
+          <span class="text-pink-400">// </span> me ha enseñado a construir software robusto donde
+          la eficiencia y la fiabilidad son críticas.
+          <br />
+          <span class="text-pink-400">// </span> Me apasiona transformar necesidades de negocio
+          complejas en código limpio y funcional.
+        </div>
+      </div>
+      <div class="window-footer">
+        <span>
+          <span class="text-green-400"> ● </span>
+
+          16 technologies
+        </span>
+
+        <span> stack.json </span>
+
+        <span> UTF-8 </span>
+      </div>
+    </div>
+  </div>
+</section>

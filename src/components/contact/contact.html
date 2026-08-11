@@ -1,0 +1,129 @@
+<section
+  id="contacto"
+  class="min-h-screen bg-[#1C1A17] p-6 md:p-12 flex flex-col items-center justify-center"
+>
+  <!-- Contenedor principal estilo Ventana -->
+  <div class="w-full max-w-4xl mx-auto flex flex-col gap-4">
+    <div class="overflow-hidden w-full text-left Texto">
+      <h1 class="text-2xl md:text-3xl font-mono font-bold text-white tracking-wide title-typing">
+        Contacto
+      </h1>
+    </div>
+
+    <div
+      class="w-full max-w-4xl bg-[#1e1e1e] border border-neutral-700 rounded-xl overflow-hidden shadow-2xl"
+    >
+      <!-- Barra superior estilo macOS -->
+      <div
+        #contactWindow
+        class="bg-[#2d2d2d] px-4 py-2 flex items-center border-b border-neutral-700"
+      >
+        <div class="flex space-x-2">
+          <div class="circle red"></div>
+          <div class="circle yellow"></div>
+          <div class="circle green"></div>
+        </div>
+        <span class="ml-4 text-lg text-neutral-400 font-mono">contacto.ts</span>
+        <div class="window-status">
+          <span class="status-dot"></span>
+          <span>ready</span>
+        </div>
+      </div>
+
+      <!-- Contenido Formulario en formato de código -->
+      <form
+        [formGroup]="contactForm"
+        (ngSubmit)="onSubmit()"
+        class="p-8 font-mono text-base md:text-lg leading-relaxed text-neutral-300 overflow-x-auto"
+      >
+        <p class="mb-4">
+          <span class="text-pink-400">const </span>
+          <span class="text-blue-400">nuevoMensaje</span>:
+          <span class="text-yellow-300">EmailData</span> =
+          {{ '{' }}
+        </p>
+
+        <div class="pl-6 space-y-4">
+          <!-- Input Nombre -->
+          <div class="flex flex-col sm:flex-row sm:items-center">
+            <span class="text-sky-300 mr-2 mb-1 sm:mb-0 w-24">nombre:</span>
+            <input
+              type="text"
+              formControlName="sender_name"
+              placeholder="'Juan Pérez'"
+              class="code-input flex-1 max-w-md text-green-400"
+            />
+            <span class="text-neutral-400 ml-1 hidden sm:inline">,</span>
+          </div>
+
+          <!-- Input Email -->
+          <div class="flex flex-col sm:flex-row sm:items-center">
+            <span class="text-sky-300 mr-2 mb-1 sm:mb-0 w-24">email:</span>
+            <input
+              type="email"
+              formControlName="sender_email"
+              placeholder="'correo@empresa.com'"
+              class="code-input flex-1 max-w-md text-green-400"
+            />
+            <span class="text-neutral-400 ml-1 hidden sm:inline">,</span>
+          </div>
+
+          <!-- Textarea Mensaje -->
+          <div class="flex flex-col sm:flex-row sm:items-start">
+            <span class="text-sky-300 mr-2 mt-2 w-24">mensaje:</span>
+            <textarea
+              formControlName="message"
+              rows="4"
+              placeholder="`Cuéntame sobre el proyecto o posición...`"
+              class="code-input flex-1 max-w-md text-green-400 mt-1 resize-y"
+            ></textarea>
+          </div>
+        </div>
+
+        <p class="mt-4 mb-8">{{ '}' }};</p>
+
+        <!-- Estados (Estilo Consola) -->
+        @if (submitSuccess) {
+          <div class="mb-6 pt-4 border-t border-neutral-700 text-green-400 italic">
+            <span class="text-pink-400">// </span> > Success: Mensaje enviado correctamente. Te
+            contactaré pronto.
+          </div>
+        }
+
+        @if (submitError) {
+          <div class="mb-6 pt-4 border-t border-neutral-700 text-red-400 italic">
+            <span class="text-pink-400">// </span> > Error: Fallo en la conexión. Por favor intenta
+            de nuevo.
+          </div>
+        }
+
+        <!-- Botón Simulación Ejecución -->
+        <div class="mt-4 flex">
+          <button
+            type="submit"
+            [disabled]="contactForm.invalid || isSubmitting"
+            class="submit-btn text-left group flex items-center"
+          >
+            <span class="text-pink-400 group-hover:text-pink-300 transition-colors">await</span>
+            <span class="text-blue-400 group-hover:text-blue-300 transition-colors ml-2">
+              {{ isSubmitting ? 'enviandoDatos' : 'enviarMensaje' }}
+            </span>
+            <span class="text-neutral-300">(nuevoMensaje);</span>
+            <span class="cursor-blink ml-1">|</span>
+          </button>
+        </div>
+      </form>
+      <div class="window-footer">
+        <span>
+          <span class="text-green-400"> ● </span>
+
+          16 technologies
+        </span>
+
+        <span> stack.json </span>
+
+        <span> UTF-8 </span>
+      </div>
+    </div>
+  </div>
+</section>
