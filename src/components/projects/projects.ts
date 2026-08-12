@@ -25,6 +25,11 @@ interface RutaActiva {
   FechaDB: string;
   HoraFinJornada: string | null;
 }
+interface ClienteRuta{
+  Cliente: string;
+  Direccion: string;
+  Detalle: string;
+}
 
 @Component({
   selector: 'app-projects',
@@ -38,7 +43,8 @@ export class ProjectsComponent {
   isSidebarOpen: boolean = false;
   isCollapsed: boolean = false;
   isSubmenuOpen: boolean = false;
-isReportesOpen = false;
+  isReportesOpen = false;
+  isDrawerOpen: boolean = false;
   // Controles y datos existentes
   ddlCedi = new FormControl('0');
 
@@ -156,6 +162,33 @@ isReportesOpen = false;
     }
     ];
   
+  listaClientes: ClienteRuta[] = [
+    {
+      Cliente: 'ABARROTES EL GÜERO',
+      Direccion: 'AV. REVOLUCIÓN #1234, COL. CENTRO',
+      Detalle: 'TEL: 664-123-4567 | CP: 00124'
+    },
+    {
+      Cliente: 'SUPER ABARROTES SAN JOSÉ',
+      Direccion: 'CALLE BENITO JUÁREZ #567',
+      Detalle: 'TEL: 664-987-6543 | CP: 00125'
+    },
+    {
+      Cliente: 'ABARROTES DON BETO',
+      Direccion: 'CALLE OCAMPO 2DA #2213',
+      Detalle: 'TEL: 664-289-8898 | CP: 22100'
+    },
+    {
+      Cliente: 'SUPER A',
+      Direccion: 'CALLE MANUEL MIRAFLORES #2512',
+      Detalle: 'TEL: 664-781-1245 | CP: 21441'
+    },
+    {
+      Cliente: 'TIENDA 3B',
+      Direccion: 'CALLE MADERO 7MA #1234',
+      Detalle: 'TEL: 664-123-5123 | CP: 12441'
+    }
+  ];
   toggleMenuClientes() {
     if (window.innerWidth <= 980) {
       this.isSidebarOpen = !this.isSidebarOpen;
@@ -182,4 +215,13 @@ isReportesOpen = false;
   togglePassword(): void {
     this.mostrarPassword = !this.mostrarPassword;
   }
+  mostrarDemo = false;
+
+mostrarModalDemo(): void {
+  this.mostrarDemo = true;
+}
+
+cerrarModalDemo(): void {
+  this.mostrarDemo = false;
+}
 }

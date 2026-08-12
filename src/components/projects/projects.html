@@ -518,12 +518,141 @@
                   </div>
 
                   <!-- Botón -->
-                  <button class="android-login-button">
+                  <button type="button" class="android-login-button" (click)="mostrarModalDemo()">
                     <i class="fas fa-lock login-lock"></i>
                     <span>Inicio de Sesión</span>
                   </button>
                 </div>
+                <!-- ==========================================
+     MODAL DEMO
+========================================== -->
 
+                <div
+                  class="demo-overlay"
+                  [class.demo-visible]="mostrarDemo"
+                  (click)="cerrarModalDemo()"
+                >
+                  <div
+                    class="demo-modal"
+                    [class.demo-modal-visible]="mostrarDemo"
+                    (click)="$event.stopPropagation()"
+                  >
+                    <!-- Botón cerrar -->
+                    <button
+                      type="button"
+                      class="demo-close"
+                      (click)="cerrarModalDemo()"
+                      aria-label="Cerrar"
+                    >
+                      <i class="fas fa-times"></i>
+                    </button>
+
+                    <!-- Personaje -->
+                    <div class="demo-character">
+                      <!-- Brillos -->
+                      <span class="demo-spark spark-1">✦</span>
+                      <span class="demo-spark spark-2">✦</span>
+                      <span class="demo-spark spark-3">•</span>
+
+                      <!-- PERSONAJE -->
+                      <div class="character">
+                        <!-- Cabeza -->
+                        <div class="character-head">
+                          <div class="character-hair"></div>
+
+                          <!-- Orejas -->
+                          <div class="character-ear ear-left"></div>
+                          <div class="character-ear ear-right"></div>
+
+                          <!-- Cejas -->
+                          <div class="character-brow brow-left"></div>
+                          <div class="character-brow brow-right"></div>
+
+                          <!-- Ojos -->
+                          <div class="character-eye eye-left">
+                            <span></span>
+                          </div>
+
+                          <div class="character-eye eye-right">
+                            <span></span>
+                          </div>
+
+                          <!-- Nariz -->
+                          <div class="character-nose"></div>
+
+                          <!-- Boca -->
+                          <div class="character-mouth"></div>
+                        </div>
+
+                        <!-- Cuello -->
+                        <div class="character-neck"></div>
+
+                        <!-- Cuerpo -->
+                        <div class="character-body">
+                          <div class="character-collar collar-left"></div>
+                          <div class="character-collar collar-right"></div>
+
+                          <div class="character-logo">PBC</div>
+                        </div>
+
+                        <!-- Brazo que hace STOP -->
+                        <div class="character-stop-arm">
+                          <!-- Antebrazo -->
+                          <div class="character-forearm"></div>
+
+                          <!-- Mano abierta -->
+                          <div class="character-stop-hand">
+                            <!-- Palma -->
+                            <div class="hand-palm"></div>
+
+                            <!-- Dedos -->
+                            <div class="hand-finger finger-1"></div>
+                            <div class="hand-finger finger-2"></div>
+                            <div class="hand-finger finger-3"></div>
+                            <div class="hand-finger finger-4"></div>
+                            <div class="hand-finger finger-5"></div>
+
+                            <!-- Pulgar -->
+                            <div class="hand-thumb"></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Señal de NO -->
+                      <div class="no-bubble">
+                        <i class="fas fa-times"></i>
+                      </div>
+                    </div>
+
+                    <!-- Contenido -->
+                    <div class="demo-content">
+                      <div class="demo-badge">
+                        <i class="fas fa-exclamation-circle"></i>
+                        Solo demostración
+                      </div>
+
+                      <h3>
+                        ¡Alto ahí!
+                        <span>👋</span>
+                      </h3>
+
+                      <p class="demo-main-text">
+                        Este inicio de sesión es
+                        <strong>solo un mockup</strong>.
+                      </p>
+
+                      <p class="demo-description">
+                        Los datos que ingreses aquí no se envían a ningún servidor. Esta pantalla
+                        existe únicamente para mostrar el diseño y funcionamiento de la aplicación.
+                      </p>
+
+                      <button type="button" class="demo-ok-button" (click)="cerrarModalDemo()">
+                        <i class="fas fa-check"></i>
+                        <span>¡Entendido!</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
                 <!-- Loading -->
                 <div class="android-loading">
                   <div class="spinner"></div>
@@ -536,7 +665,105 @@
         <div class="flex-1 flex justify-center lg:justify-end">
           <div class="interactive-placeholder mobile-frame min-h-[500px] w-full max-w-[250px]">
             <div class="placeholder-body flex-col justify-start">
-              <div class="android-screen"></div>
+              <div class="android-screend">
+                <!-- Overlay de fondo cuando se abre el menú -->
+                <div
+                  class="drawer-overlay"
+                  [class.active]="isDrawerOpen"
+                  (click)="isDrawerOpen = false"
+                ></div>
+
+                <!-- Menú Desplegable (Drawer) -->
+                <aside class="drawer-menu" [class.open]="isDrawerOpen">
+                  <div class="drawer-header">
+                    <div class="drawer-logo-container">
+                      <img src="img/inicio_azicena.jpeg" alt="Leche Azucena" />
+                    </div>
+                    <div class="drawer-app-title">Leche Azucena Movil 4.0.6</div>
+                    <div class="drawer-app-user">Muñoz Navarro Ismael Alberto</div>
+                  </div>
+
+                  <div class="drawer-body">
+                    <div class="drawer-item">
+                      <i class="fas fa-clipboard-list"></i> Actualizar listas
+                    </div>
+                    <div class="drawer-item">
+                      <i class="fas fa-arrow-circle-down"></i> Inicio de Jornada
+                    </div>
+                    <div class="drawer-item">
+                      <i class="fas fa-arrow-circle-left"></i> Fin de Jornada
+                    </div>
+                    <div class="drawer-item">
+                      <i class="fas fa-exclamation-triangle"></i> Eventos
+                    </div>
+                    <div class="drawer-item"><i class="fas fa-user-plus"></i> Prospecto</div>
+                    <div class="drawer-item"><i class="fas fa-user-check"></i> Ubicar Cliente</div>
+                    <div class="drawer-item"><i class="fas fa-list-ol"></i> Resumen</div>
+                    <div class="drawer-item"><i class="fas fa-list-alt"></i> Comodato</div>
+                    <div class="drawer-item"><i class="fas fa-crosshairs"></i> Objetivos</div>
+                    <div class="drawer-item"><i class="fas fa-sliders-h"></i> Configuración</div>
+
+                    <div class="drawer-section-title">Opciones</div>
+
+                    <div class="drawer-item"><i class="fas fa-exchange-alt"></i> Cerrar Sesión</div>
+                    <div class="drawer-item"><i class="fas fa-sign-out-alt"></i> Salir</div>
+                  </div>
+                </aside>
+
+                <!-- Navbar Superior Dashboard -->
+                <div class="nav-bard">
+                  <div class="nav-top-row">
+                    <div class="nav-left">
+                      <button
+                        type="button"
+                        class="btn-menu-toggle"
+                        [class.menu-open]="isDrawerOpen"
+                        (click)="isDrawerOpen = !isDrawerOpen"
+                      >
+                        <i class="fas fa-bars"></i>
+                      </button>
+                      <span class="nav-screen-title">Inicio</span>
+                    </div>
+                    <div class="nav-right">
+                      <span class="nav-day text-capitalize">Miércoles</span>
+                      <div class="nav-icon-badge"><i class="fas fa-users"></i></div>
+                      <div class="nav-icon-badge"><i class="fas fa-map-marked-alt"></i></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Buscador -->
+                <div class="dashboard-search-container">
+                  <i class="fas fa-search search-icon"></i>
+                  <input type="text" placeholder="Buscar cliente..." class="search-input" />
+                </div>
+
+                <!-- Lista de Clientes (Basado en el XML layout_redondo) -->
+                <div class="client-list-container">
+                  @for (cliente of listaClientes; track cliente.Cliente) {
+                    <!-- Tarjeta del Cliente -->
+                    <div class="client-card">
+                      <div class="client-card-top">
+                        <div class="client-status-icons">
+                          <!-- Ícono (puedes hacer esto dinámico más adelante si lo necesitas) -->
+                          <i class="fas fa-check-circle status-ic ic-1"></i>
+                        </div>
+
+                        <div class="client-name-container">
+                          <!-- Nombre del cliente -->
+                          <span class="client-name">{{ cliente.Cliente }}</span>
+                        </div>
+                      </div>
+
+                      <!-- Dirección -->
+                      <span class="client-address">{{ cliente.Direccion }}</span>
+
+                      <!-- Teléfono y Código Postal -->
+                      <span class="client-detail">{{ cliente.Detalle }}</span>
+                    </div>
+                  }
+                </div>
+              </div>
             </div>
           </div>
         </div>
