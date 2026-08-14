@@ -1,0 +1,450 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Reset para asegurar que todo respete el contenedor */
+.androidk-screen * {
+  box-sizing: border-box;
+}
+
+/* Contenedor principal de la pantalla del celular */
+.androidk-screen {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0f172a;
+  background-image:
+    radial-gradient(
+      at 0% 0%,
+      hsla(253, 16%, 7%, 1) 0,
+      transparent 50%
+    ),
+    radial-gradient(
+      at 50% 0%,
+      hsla(225, 39%, 30%, 1) 0,
+      transparent 50%
+    ),
+    radial-gradient(
+      at 100% 0%,
+      hsla(339, 49%, 30%, 1) 0,
+      transparent 50%
+    );
+  color: white;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  border-radius: inherit;
+}
+/* =========================================================
+   SCROLL INVISIBLE
+   Permite hacer scroll, pero oculta la barra
+========================================================= */
+
+.androidk-screen {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer / Edge antiguo */
+}
+
+.androidk-screen::-webkit-scrollbar {
+  display: none; /* Chrome, Edge, Safari */
+}
+/* Este es tu .container original, ahora adaptado al celular */
+.karaoke-android {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 15px; /* Menos padding para el tamaño de 250px */
+  min-height: 100%;
+  width: 100%;
+}
+
+/* Tarjeta principal */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  width: 100%;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.37);
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  border-color:
+    rgba(154, 111, 254, 0.25);
+  box-shadow:
+    0 12px 38px rgba(0, 0, 0, 0.42),
+    0 0 20px rgba(99, 102, 241, 0.06);
+}
+
+.header h2 {
+  font-size: 1.2rem; /* Letra más pequeña para el mockup */
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(to right, #c084fc, #6366f1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+}
+
+.header p {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.7rem;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.form-group { 
+  margin-bottom: 15px;
+  position: relative;
+}
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  color: #cbd5e1;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+/*
+   Cuando el usuario pasa por encima del campo
+*/
+.form-group:hover label {
+  color: #a5b4fc;
+}
+/*
+   Cuando el input está seleccionado
+*/
+.form-group:focus-within label {
+  color: #a78bfa;
+  transform: translateX(2px);
+}
+.form-group::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  border-radius: 10px;
+  background:
+    linear-gradient(
+      90deg,
+      #6366f1,
+      #a855f7
+    );
+  box-shadow:
+    0 0 8px rgba(139, 92, 246, 0.65);
+  transition:
+    width 0.35s ease;
+}
+
+
+.form-group:focus-within::after {
+  width: 100%;
+}
+
+.modern-input {
+  position: relative;
+  width: 100%;
+  padding: 10px 12px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(0, 0, 0, 0.25)
+    );
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 9px;
+  outline: none;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+}
+.modern-input::placeholder {
+  color: #64748b;
+  opacity: 1;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+.modern-input:focus {
+  border-color: #818cf8;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(99, 102, 241, 0.12),
+      rgba(0, 0, 0, 0.3)
+    );
+  box-shadow:
+    0 0 0 2px rgba(129, 140, 248, 0.10),
+    0 0 18px rgba(99, 102, 241, 0.28),
+    0 6px 18px rgba(0, 0, 0, 0.20);
+  transform: translateY(-1px) scale(1.01);
+}
+.modern-input:hover {
+  border-color: rgba(129, 140, 248, 0.55);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.075),
+      rgba(0, 0, 0, 0.28)
+    );
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.18);
+  transform: translateY(-1px);
+}
+.modern-input:focus::placeholder {
+  color: #818cf8;
+  transform: translateX(4px);
+  opacity: 0.35;
+}
+.modern-input:active {
+  transform: translateY(0) scale(0.995);
+  box-shadow:
+    0 0 0 2px rgba(129, 140, 248, 0.08);
+}
+
+textarea.modern-input {
+  min-height: 65px;
+  resize: none;
+  line-height: 1.5;
+}
+.modern-input:-webkit-autofill,
+.modern-input:-webkit-autofill:hover,
+.modern-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff;
+  transition:
+    background-color 9999s ease-in-out 0s;
+}
+/* En 250px no hay espacio para dos columnas, se fuerza a columna */
+.row { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 0; 
+}
+
+.submit-btn {
+  position: relative;
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      135deg,
+      #6366f1 0%,
+      #8b5cf6 50%,
+      #a855f7 100%
+    );
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow:
+    0 5px 15px rgba(99, 102, 241, 0.25);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.22),
+      transparent
+    );
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+
+
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow:
+    0 8px 22px rgba(99, 102, 241, 0.40);
+}
+.submit-btn:hover::before {
+  left: 130%;
+}
+.submit-btn:active {
+  transform: translateY(1px) scale(0.97);
+  box-shadow:
+    0 3px 8px rgba(99, 102, 241, 0.25);
+  filter: brightness(0.96);
+}
+.submit-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.modal-overlay {
+  position: absolute; /* Cambiado de fixed a absolute para que se quede dentro del mockup */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  /* display: flex; (Se maneja desde el HTML para ocultar/mostrar) */
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Clase de utilidad para Tailwind/CSS */
+.hidden { display: none !important; }
+
+.success-modal {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  backdrop-filter: blur(20px);
+  padding: 25px 15px;
+  border-radius: 20px;
+  text-align: center;
+  width: 85%;
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.2), 0 20px 50px rgba(0,0,0,0.5);
+  animation: scaleUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.success-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.success-modal h3 {
+  font-size: 1.3rem;
+  margin: 0 0 10px 0;
+  background: linear-gradient(to right, #4ade80, #2dd4bf);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.success-modal p {
+  font-size: 0.8rem;
+  color: #e2e8f0;
+  margin-bottom: 20px;
+}
+
+.close-modal-btn {
+  padding: 10px 20px;
+  background: white;
+  color: #0f172a;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-modal-btn:hover {
+  background: #f1f5f9;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.submit-btn .rocket {
+  display: inline-block;
+  font-size: 13px;
+  transform-origin: center center;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.submit-btn:hover .rocket {
+  animation:
+    rocketHover 0.8s ease-in-out infinite;
+}
+
+.submit-btn:active .rocket {
+  animation: rocketLaunch 0.45s ease-out;
+}
+
+@keyframes rocketHover {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  30% {
+    transform: translate(1px, -2px) rotate(-5deg);
+  }
+  60% {
+    transform: translate(2px, -4px) rotate(-8deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+
+@keyframes rocketLaunch {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  30% {
+    transform: translate(2px, -3px) rotate(-8deg) scale(1.05);
+  }
+  65% {
+    transform: translate(4px, -7px) rotate(-12deg) scale(1.1);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+}

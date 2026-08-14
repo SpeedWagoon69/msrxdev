@@ -9,6 +9,7 @@ import { About } from '../components/about/about';
 import { TechS } from '../components/tech-s/tech-s';
 import { DashboardPreview } from '../components/dashboard-preview/dashboard-preview';
 import { AppLn } from '../components/app-ln/app-ln';
+import '@lottiefiles/dotlottie-wc';
 @Component({
   selector: 'app-root',
   standalone: true,

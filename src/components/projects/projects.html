@@ -3,6 +3,8 @@
   <link rel="stylesheet" href="projects.css" />
   <link rel="stylesheet" href="dashboard.css" />
   <link rel="stylesheet" href="app-ln.css" />
+  <link rel="stylesheet" href="karaoke.css" />
+  <link rel="stylesheet" href="adminK.css" />
 </head>
 <link
   rel="stylesheet"
@@ -69,7 +71,16 @@
                 <span class="text-green-400">'Alertas de paradas no autorizadas'</span>,<br />
                 <span class="text-green-400">'Reportes y gestión de choferes'</span>
               </div>
-              ]
+              ],
+            </div>
+            <div>
+              <span class="text-sky-300">tecnologias</span>:[
+              <div class="pl-4 border-l border-neutral-700 ml-2 mt-1">
+                <span class="text-green-400">'Asp'</span>,<br />
+                <span class="text-green-400">'C#'</span>,<br />
+                <span class="text-green-400">'CSS'</span>,<br />
+                <span class="text-green-400">'Js'</span>,<br />
+              </div>
             </div>
           </div>
           <p class="mt-2">{{ '}' }};</p>
@@ -434,7 +445,7 @@
         class="p-6 md:p-8 flex flex-col lg:flex-row gap-8 font-mono text-sm md:text-base leading-relaxed text-neutral-300"
       >
         <!-- Código -->
-        <div class="flex-1 overflow-x-auto text-lg">
+        <div class="flex-1 overflow-x-auto text-md">
           <p>
             <span class="text-pink-400">const </span>
             <span class="text-blue-400">appMovilLaNacional</span> = {{ '{' }}
@@ -456,6 +467,15 @@
                 <span class="text-green-400">'Impresión de tickets y mermas'</span>,<br />
                 <span class="text-green-400">'Tracking de ubicación en 2do plano'</span>
               </div>
+              ],
+            </div>
+            <div>
+              <span class="text-sky-300">tecnologias</span>:[
+              <div class="pl-4 border-l border-neutral-700 ml-2 mt-1">
+                <span class="text-green-400">'Android Studio'</span>,<br />
+                <span class="text-green-400">'Java'</span>,<br />
+                <span class="text-green-400">'XML'</span>,<br />
+              </div>
               ]
             </div>
           </div>
@@ -474,7 +494,7 @@
 
                 <!-- Logo / imagen superior -->
                 <div class="android-logo">
-                  <img src="/img/inicio_proti.png" alt="Logo" />
+                  <img src="img/inicio_proti.png" alt="Logo" />
                 </div>
 
                 <!-- Formulario -->
@@ -549,76 +569,16 @@
 
                     <!-- Personaje -->
                     <div class="demo-character">
-                      <!-- Brillos -->
-                      <span class="demo-spark spark-1">✦</span>
-                      <span class="demo-spark spark-2">✦</span>
-                      <span class="demo-spark spark-3">•</span>
-
-                      <!-- PERSONAJE -->
-                      <div class="character">
-                        <!-- Cabeza -->
-                        <div class="character-head">
-                          <div class="character-hair"></div>
-
-                          <!-- Orejas -->
-                          <div class="character-ear ear-left"></div>
-                          <div class="character-ear ear-right"></div>
-
-                          <!-- Cejas -->
-                          <div class="character-brow brow-left"></div>
-                          <div class="character-brow brow-right"></div>
-
-                          <!-- Ojos -->
-                          <div class="character-eye eye-left">
-                            <span></span>
-                          </div>
-
-                          <div class="character-eye eye-right">
-                            <span></span>
-                          </div>
-
-                          <!-- Nariz -->
-                          <div class="character-nose"></div>
-
-                          <!-- Boca -->
-                          <div class="character-mouth"></div>
-                        </div>
-
-                        <!-- Cuello -->
-                        <div class="character-neck"></div>
-
-                        <!-- Cuerpo -->
-                        <div class="character-body">
-                          <div class="character-collar collar-left"></div>
-                          <div class="character-collar collar-right"></div>
-
-                          <div class="character-logo">PBC</div>
-                        </div>
-
-                        <!-- Brazo que hace STOP -->
-                        <div class="character-stop-arm">
-                          <!-- Antebrazo -->
-                          <div class="character-forearm"></div>
-
-                          <!-- Mano abierta -->
-                          <div class="character-stop-hand">
-                            <!-- Palma -->
-                            <div class="hand-palm"></div>
-
-                            <!-- Dedos -->
-                            <div class="hand-finger finger-1"></div>
-                            <div class="hand-finger finger-2"></div>
-                            <div class="hand-finger finger-3"></div>
-                            <div class="hand-finger finger-4"></div>
-                            <div class="hand-finger finger-5"></div>
-
-                            <!-- Pulgar -->
-                            <div class="hand-thumb"></div>
-                          </div>
-                        </div>
+                      <div class="demo-animation" *ngIf="mostrarDemo">
+                        <dotlottie-wc
+                          src="assets/animation.lottie"
+                          speed="1"
+                          mode="forward"
+                          autoplay
+                          loop
+                        ></dotlottie-wc>
                       </div>
 
-                      <!-- Señal de NO -->
                       <div class="no-bubble">
                         <i class="fas fa-times"></i>
                       </div>
@@ -792,7 +752,7 @@
 
       <!-- Contenido del Proyecto -->
       <div
-        class="p-6 md:p-8 flex flex-col lg:flex-row gap-8 font-mono text-sm md:text-base leading-relaxed text-neutral-300"
+        class="p-6 md:p-5 flex flex-col lg:flex-row gap-8 font-mono text-sm md:text-base leading-relaxed text-neutral-300"
       >
         <!-- Código -->
         <div class="flex-1 overflow-x-auto">
@@ -800,7 +760,7 @@
             <span class="text-pink-400">const </span>
             <span class="text-blue-400">gestorKaraoke</span> = {{ '{' }}
           </p>
-          <div class="pl-6 space-y-2 mt-2">
+          <div class="pl-4 space-y-2 mt-2">
             <div>
               <span class="text-sky-300">tipo</span>:
               <span class="text-green-400">'Web Fullstack'</span>,
@@ -826,13 +786,244 @@
           </div>
           <p class="mt-2">{{ '}' }};</p>
         </div>
+        <!--Pantalla del celular-->
+        <div class="flex-1 flex justify-center lg:justify-end">
+          <!-- Contenedor del celular mockup -->
+          <div class="interactive-placeholder mobile-frame h-[550px] w-full max-w-[300px] relative">
+            <div class="placeholder-body flex-col justify-start h-full">
+              <div class="androidk-screen">
+                <div class="karaoke-android">
+                  <div class="modal-overlay hidden">
+                    <div class="success-modal">
+                      <span class="success-icon">✨</span>
+                      <h3>¡Recibido!</h3>
+                      <p style="color: #cbd5e1">
+                        Tu canción ha sido agregada a la lista de espera con éxito.
+                      </p>
+                      <button type="button" class="close-modal-btn" (click)="showSuccess = false">
+                        GENIAL
+                      </button>
+                    </div>
+                  </div>
+                  <div class="glass-card">
+                    <div class="header">
+                      <h2>Karaoke Night 🎤</h2>
+                      <p>Pide tu cancion y brilla en el escenario</p>
+                    </div>
+
+                    <!-- Formulario de demostración -->
+                    <form>
+                      <div class="form-group">
+                        <label>Canción *</label>
+                        <input
+                          name="title"
+                          class="modern-input"
+                          type="text"
+                          placeholder="Ej. Bésame Mucho"
+                          required
+                        />
+                      </div>
+
+                      <div class="form-group">
+                        <label>Artista Original *</label>
+                        <input
+                          name="artist"
+                          class="modern-input"
+                          type="text"
+                          placeholder="Ej. Luis Miguel"
+                          required
+                        />
+                      </div>
+
+                      <!-- Fila adaptada (en el CSS móvil esto se apilará en columnas) -->
+                      <div class="row">
+                        <div class="form-group">
+                          <label>Tu Nombre *</label>
+                          <input
+                            name="singer_first_name"
+                            class="modern-input"
+                            type="text"
+                            required
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label>Tu Apellido *</label>
+                          <input
+                            name="singer_last_name"
+                            class="modern-input"
+                            type="text"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Dedicatoria (Opcional)</label>
+                        <textarea
+                          name="description"
+                          class="modern-input"
+                          rows="3"
+                          placeholder="Para alguien especial..."
+                        ></textarea>
+                      </div>
+
+                      <button type="button" class="submit-btn">
+                        <span class="rocket">🚀</span>
+                        <span>Enviar Pedido</span>
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <!-- Zona Interactiva -->
-        <div class="interactive-placeholder flex-1 min-h-[250px]">
-          <div class="placeholder-header"><div class="circle-sm bg-neutral-600"></div></div>
+        <div class="interactive-placeholder w-full lg:flex-[2] min-h-[250px] max-w-[400px]">
+          <div class="placeholder-header">
+            <div class="circle-sm bg-neutral-600"></div>
+          </div>
+
           <div class="placeholder-body">
-            <span class="placeholder-text">/* Render: DJ Dashboard View */</span>
-            <div class="interact-zone"></div>
+            <div
+              class="karaoke-screen"
+              (mousemove)="moveGradient($event)"
+              (mouseleave)="resetGradient()"
+            >
+              <div class="karaoke-content">
+                <!-- HEADER -->
+
+                <div class="karaoke-header">
+                  <div class="karaoke-title">
+                    <h3>
+                      Fila
+                      <span class="title-mic">🎤</span>
+                    </h3>
+
+                    <small>
+                      {{ organizedSongs.length }}
+                      {{ organizedSongs.length === 1 ? 'canción' : 'canciones' }}
+                      en espera
+                    </small>
+                  </div>
+
+                  <div class="turn-control">
+                    <span>Turno</span>
+
+                    <div class="custom-select" [class.open]="turnDropdownOpen">
+                      <!-- Botón principal -->
+                      <button
+                        type="button"
+                        class="custom-select-trigger"
+                        (click)="turnDropdownOpen = !turnDropdownOpen"
+                      >
+                        <span class="selected-value">
+                          {{ songsPerTurn }}
+                        </span>
+
+                        <i
+                          class="fas fa-chevron-down select-arrow"
+                          [class.rotate]="turnDropdownOpen"
+                        ></i>
+                      </button>
+
+                      <!-- Lista -->
+                      <div class="custom-select-options" *ngIf="turnDropdownOpen">
+                        <button
+                          type="button"
+                          class="custom-option"
+                          [class.selected]="songsPerTurn === 1"
+                          (click)="selectTurn(1)"
+                        >
+                          <span class="option-number">1</span>
+                          <span class="option-text">Canción</span>
+
+                          <i *ngIf="songsPerTurn === 1" class="fas fa-check option-check"></i>
+                        </button>
+
+                        <button
+                          type="button"
+                          class="custom-option"
+                          [class.selected]="songsPerTurn === 2"
+                          (click)="selectTurn(2)"
+                        >
+                          <span class="option-number">2</span>
+                          <span class="option-text">Canciones</span>
+
+                          <i *ngIf="songsPerTurn === 2" class="fas fa-check option-check"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- LISTA -->
+
+                <div class="songs-list">
+                  <div
+                    class="song-item"
+                    *ngFor="let song of organizedSongs; let i = index"
+                    [class.song-removing]="removingSongId === song.id"
+                  >
+                    <!-- NUMERO -->
+
+                    <div class="song-number">
+                      {{ i + 1 }}
+                    </div>
+
+                    <!-- INFORMACIÓN -->
+
+                    <div class="song-info">
+                      <div class="song-title">
+                        {{ song.title }}
+                      </div>
+
+                      <div class="song-details">
+                        <span class="singer">
+                          {{ song.singer_first_name }}
+                          {{ song.singer_last_name }}
+                        </span>
+
+                        <span class="artist"> — {{ song.artist }} </span>
+                      </div>
+
+                      <div class="song-extra">
+                        <span class="song-time">
+                          <span class="time-icon">◷</span>
+                          {{ formatDate(song.created_at) }}
+                        </span>
+
+                        <span class="song-description" *ngIf="song.description">
+                          📝 {{ song.description }}
+                        </span>
+                      </div>
+                    </div>
+
+                    <!-- BOTÓN -->
+
+                    <button
+                      class="done-button"
+                      [class.done-active]="removingSongId === song.id"
+                      (click)="deleteSong(song.id)"
+                      title="Marcar como lista"
+                    >
+                      <span *ngIf="removingSongId !== song.id"> ✓ </span>
+
+                      <span *ngIf="removingSongId === song.id" class="check-animation"> ✓ </span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- SIN CANCIONES -->
+
+                <div class="empty-queue" *ngIf="organizedSongs.length === 0">
+                  <span> 🎤 </span>
+
+                  <p>No hay canciones en la fila</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
